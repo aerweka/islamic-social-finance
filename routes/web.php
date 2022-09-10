@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// public routes (lp)
+
+// tempat route utk authenticated and verified user
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    // admin routes
+    Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    });
+    // registered laznas routes
+    Route::group(['prefix' => 'survey', 'as' => 'surevy.'], function () {
+    });
+});
