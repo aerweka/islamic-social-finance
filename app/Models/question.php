@@ -11,7 +11,7 @@ class question extends Model
 
     protected $table = 'question';
     protected $primaryKey = 'id_pertanyaan';
-    protected $fillable =[
+    protected $fillable = [
         'id_aspect',
         'kode_indikator',
         'soal',
@@ -23,7 +23,8 @@ class question extends Model
         'bobot_pertanyaan'
     ];
 
-    public function aspect(){
+    public function aspect()
+    {
         return $this->hasMany(aspect::class, 'id_aspek');
     }
 }

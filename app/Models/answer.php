@@ -11,7 +11,7 @@ class answer extends Model
 
     protected $table = 'answer';
     protected $primaryKey = 'id_jawaban';
-    protected $fillable=[
+    protected $fillable = [
         'id',
         'jawaban_terpilih',
         'filled_at',
@@ -20,7 +20,8 @@ class answer extends Model
         'total-soc',
     ];
 
-    public function users(){
+    public function users()
+    {
         return $this->belongsTo(users::class, 'id');
     }
 }

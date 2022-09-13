@@ -11,18 +11,20 @@ class aspect extends Model
 
     protected $table = 'aspect';
     protected $primaryKey = 'id_aspek';
-    protected $fillable =[
+    protected $fillable = [
         'kode',
         'aspek',
         'id_dimensi',
         'bobot_aspek'
     ];
 
-    public function dimention(){
+    public function dimention()
+    {
         return $this->belongsTo(dimention::class, 'id_dimensi');
     }
 
-    public function question(){
+    public function question()
+    {
         return $this->hasMany(question::class, 'id_aspek');
     }
 }
