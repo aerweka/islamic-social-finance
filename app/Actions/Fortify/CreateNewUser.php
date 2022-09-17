@@ -30,12 +30,22 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
+            'nama_laznas' => ['required', 'string', 'max:255'],
+            'alamat_laznas' => ['required', 'string', 'max:255'],
+            'nama_direktur_laznas' => ['required', 'string', 'max:255'],
+            'tingkatan_laznas' => ['required', 'string', 'max:255'],
+            'no_telpon_laznas' => ['required', 'string', 'max:255'],
         ])->validate();
 
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'nama_laznas' => $input['nama_laznas'],
+            'alamat_laznas' => $input['alamat_laznas'],
+            'nama_direktur_laznas' => $input['nama_direktur_laznas'],
+            'tingkatan_laznas' => $input['tingkatan_laznas'],
+            'no_telpon_laznas' => $input['no_telpon_laznas'],
         ]);
     }
 }

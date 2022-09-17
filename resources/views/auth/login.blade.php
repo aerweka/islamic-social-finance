@@ -3,8 +3,6 @@
 @section('title', 'Sign In')
 
 @section('card-body')
-	<p class="login-box-msg">Sign in to start your session</p>
-
 	<form action="/login" method="post">
 		@csrf
 		<div class="input-group mb-3">
@@ -15,6 +13,9 @@
 				</div>
 			</div>
 		</div>
+		@error('email')
+			<p class="text-red">{{ $message }}</p>
+		@enderror
 		<div class="input-group mb-3">
 			<input name="password" type="password" class="form-control" placeholder="Password">
 			<div class="input-group-append">
@@ -23,6 +24,9 @@
 				</div>
 			</div>
 		</div>
+		@error('password')
+			<p class="text-red">{{ $message }}</p>
+		@enderror
 		<div class="row">
 			<!-- /.col -->
 			<div class="col-4">
@@ -36,6 +40,6 @@
 		<a href="/forgot-password">Lupa password?</a>
 	</p>
 	<p class="mb-0">
-		<a href="/register" class="text-center">Daftar akun baru</a>
+		<a href="/register" class="text-center">Buat akun baru</a>
 	</p>
 @endsection
