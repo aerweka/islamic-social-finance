@@ -21,6 +21,7 @@ class CreateAnswerTable extends Migration
             $table->integer('total_env');
             $table->integer('total_gov');
             $table->integer('total_soc');
+            $table->integer('total_all');
 
             $table->foreign('id', 'fk_user')->references('id')->on('users');
         });

@@ -19,6 +19,6 @@ class CheckAdminRole
         if ($request->user() && $request->user()->is_admin) {
             return $next($request);
         }
-        return redirect()->back(401);
+        return redirect()->back();
     }
 }
