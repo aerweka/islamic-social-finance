@@ -13,11 +13,13 @@
 	{{-- theme css --}}
 
 	@if (Session::get('layout') == 'vertical')
-		<link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome-free-5.10.1-web/css/all.css') }}">
-		<link rel="stylesheet" href="{{ asset('assets/styles/vendor/metisMenu.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome-free-5.10.1-web/css/all.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/styles/vendor/metisMenu.min.css') }}">
+	<link id="gull-theme" rel="stylesheet" href="{{ asset('assets/styles/css/themes/lite-blue.min.css') }}">
 	@endif
+	<link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome-free-5.10.1-web/css/all.css') }}">
 	<link id="gull-theme" rel="stylesheet" href="{{ asset('assets\fonts\iconsmind\iconsmind.css') }}">
-	<link id="gull-theme" rel="stylesheet" href="{{ asset('assets/styles/css/themes/lite-purple.min.css') }}">
+	<link id="gull-theme" rel="stylesheet" href="{{ asset('assets/styles/css/themes/lite-blue.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/styles/vendor/perfect-scrollbar.css') }}">
 	{{-- page specific css --}}
 	@yield('page-css')
