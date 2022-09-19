@@ -4,11 +4,11 @@
 
 @section('card-body')
 	@if (session('status'))
-		<div class="mb-4 font-medium text-sm text-green-600">
+		<p class="text-success">
 			{{ session('status') }}
-		</div>
+		</p>
 	@endif
-	<p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
+	<p class="login-box-msg">Masukkan email anda untuk buat sandi baru.</p>
 	<form action="/forgot-password" method="post">
 		@csrf
 		<div class="input-group mb-3">
@@ -19,9 +19,12 @@
 				</div>
 			</div>
 		</div>
+		@error('email')
+			<p class="text-red">{{ $message }}</p>
+		@enderror
 		<div class="row">
 			<div class="col-12">
-				<button type="submit" class="btn btn-primary btn-block">Request new password</button>
+				<button type="submit" class="btn btn-primary btn-block">Kirim email</button>
 			</div>
 			<!-- /.col -->
 		</div>
