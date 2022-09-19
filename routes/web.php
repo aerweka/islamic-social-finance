@@ -35,5 +35,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // registered laznas routes
     Route::group(['prefix' => 'survey', 'as' => 'survey.'], function () {
         Route::resource('/user', UserController::class)->only(['update', 'edit']);
+        Route::get('/', DashboardController::class)->name('dashboard');
     });
 });
