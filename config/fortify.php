@@ -61,7 +61,6 @@ return [
     |
     */
 
-    // 'home' => auth()->user()->is_admin ? RouteServiceProvider::HOME : 'survey/',
     'home' => RouteServiceProvider::HOME,
 
     /*

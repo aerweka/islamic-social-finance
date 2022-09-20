@@ -20,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // public routes (lp)
-
 // tempat route utk authenticated and verified user
 Route::group(['middleware' => ['auth', 'verified']], function () {
     // admin routes
@@ -34,7 +33,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
     // registered laznas routes
     Route::group(['prefix' => 'survey', 'as' => 'survey.'], function () {
-        Route::resource('/user', UserController::class)->only(['update', 'edit']);
         Route::get('/', DashboardController::class)->name('dashboard');
+        Route::resource('/user', UserController::class)->only(['update', 'edit']);
     });
 });
