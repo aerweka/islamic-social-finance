@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\UserController as AdminUserModule;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
         Route::group(['prefix' => 'konfig'], function () {
             // user module
-            Route::resource('/user', UserController::class)->except('show');
+            Route::resource('/user', AdminUserModule::class)->except('show');
         });
     });
     // registered laznas routes
