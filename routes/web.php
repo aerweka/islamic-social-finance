@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\User\ModulSurveyController;
+// use App\Http\Controllers\User\gagal;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,5 +39,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::group(['prefix' => 'survey', 'as' => 'survey.'], function () {
         Route::resource('/user', UserController::class)->only(['update', 'edit']);
         Route::get('/', UserDashboardController::class)->name('user.dashboard');
+        Route::get('/soal', [ModulSurveyController::class, 'index']);
+        Route::post('/submitsoal', [ModulSurveyController::class, 'submit'])->name('user.submitsoal');
+        Route::get('/preview/{tahun}', [ModulSurveyController::class, 'previewSoal']);
+        Route::get('/cetak-hasil/{tahun}', [ModulSurveyController::class, 'cetakHasil']);
     });
 });

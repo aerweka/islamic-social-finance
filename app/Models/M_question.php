@@ -10,6 +10,7 @@ class M_question extends Model
     use HasFactory;
     protected $table = 'question';
     protected $primaryKey = 'id_pertanyaan';
+    public $timestamps=false;
     protected $fillable =[
         'id_aspect',
         'kode_indikator',

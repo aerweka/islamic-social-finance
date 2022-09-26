@@ -93,7 +93,7 @@ use Carbon\Carbon;
 										</div>
 										<div class="col-9">
 											<h2>
-												Total Skor : {{$a->total_gov}}
+												Total Skor : {{$a->total_all}}
 											</h2>
 											<hr>
 											<h5 class="mb-2">
@@ -103,16 +103,16 @@ use Carbon\Carbon;
 												Skor Sosial : {{$a->total_soc}}
 											</h5>
 											<h5 class="mb-2">
-												Skor Governance : {{$a->total_all}}
+												Skor Governance : {{$a->total_gov}}
 											</h5>
 										</div>
 										<div class="col text-sm-right text-left">
 
-											<a href="" class="btn btn-secondary ml-4 mb-4 px-4">
+											<a href="survey/preview/{{Carbon::parse($a->filled_at)->year}}" class="btn btn-secondary ml-4 mb-4 px-4">
 												<i class="fas fa-eye mr-1"></i>
 												Preview
 											</a>
-											<a href="" class="btn btn-primary ml-4 mb-4 px-4">
+											<a href="survey/cetak-hasil/{{Carbon::parse($a->filled_at)->year}}" class="btn btn-primary ml-4 mb-4 px-4">
 												<i class="fas fa-print mr-1"></i>
 												Cetak Hasil
 											</a>
