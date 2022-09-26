@@ -47,19 +47,14 @@ use Carbon\Carbon;
 
 					</div>
 					<div class="row">
-						<div class="col-lg-8 col-md-12">
+						<div class="col-lg-12 col-md-12">
 							<div class="card mb-4">
 								<div class="card-body">
-									<div class="card-title">This Year Sales</div>
-									<div id="echartBar" style="height: 300px;"></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-12">
-							<div class="card mb-4">
-								<div class="card-body">
-									<div class="card-title">Sales by Countries</div>
-									<div id="echartPie" style="height: 300px;"></div>
+									<div class="card-title"></div>
+
+									<div id="chart_performance" style="height: 300px;"></div>
+
+
 								</div>
 							</div>
 						</div>
@@ -133,6 +128,132 @@ use Carbon\Carbon;
 @endsection
 
 @section('page-js')
+<script>
+	$(document).ready(function () {
+
+// Chart in Dashboard version 1
+var echartElemBar = document.getElementById('chart_performance');
+if (echartElemBar) {
+	var echartBar = echarts.init(echartElemBar);
+	echartBar.setOption({
+		legend: {
+			borderRadius: 0,
+			orient: 'horizontal',
+			x: 'right',
+			data: ['Environment', 'Social','Governance','Total']
+		},
+		grid: {
+			left: '8px',
+			right: '8px',
+			bottom: '0',
+			containLabel: true
+		},
+		tooltip: {
+			show: true,
+			backgroundColor: 'rgba(0, 0, 0, .8)'
+		},
+		xAxis: [{
+			type: 'category',
+			data: @json($chart_tahun), //tahun
+			axisTick: {
+				alignWithLabel: true
+			},
+			splitLine: {
+				show: false
+			},
+			axisLine: {
+				show: true
+			}
+		}],
+		yAxis: [{
+			type: 'value',
+			axisLabel: {
+				formatter: '{value}'
+			},
+			min: 0,
+			max: 500,
+			interval: 100,
+			axisLine: {
+				show: false
+			},
+			splitLine: {
+				show: true,
+				interval: 'auto'
+			}
+		}],
+
+		series: [{
+			name: 'Environment',
+			data: @json($chart_total_env), //total_env
+			label: { show: false, color: '#f39c29' },
+			type: 'bar',
+			barGap: 0,
+			color: '#f39c29',
+			smooth: true,
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowOffsetY: -2,
+					shadowColor: 'rgba(0, 0, 0, 0.3)'
+				}
+			}
+		}, {
+			name: 'Social',
+			data: @json($chart_total_soc), //total_soc
+			label: { show: false, color: '#40d0db' },
+			type: 'bar',
+			color: '#40d0db',
+			smooth: true,
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowOffsetY: -2,
+					shadowColor: 'rgba(0, 0, 0, 0.3)'
+				}
+			}
+		}, {
+			name: 'Governance',
+			data: @json($chart_total_gov), //total_gov
+			label: { show: false, color: '#e1e82b' },
+			type: 'bar',
+			color: '#e1e82b',
+			smooth: true,
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowOffsetY: -2,
+					shadowColor: 'rgba(0, 0, 0, 0.3)'
+				}
+			}
+		}, {
+			name: 'Total',
+			data: @json($chart_total_all), //total
+			label: { show: false, color: '#9bbb59' },
+			type: 'bar',
+			color: '#9bbb59',
+			smooth: true,
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowOffsetY: -2,
+					shadowColor: 'rgba(0, 0, 0, 0.3)'
+				}
+			}
+		}]
+	});
+	$(window).on('resize', function () {
+		setTimeout(function () {
+			echartBar.resize();
+		}, 500);
+	});
+}});
+</script>
+
+
 <script src="{{ asset('assets/js/vendor/echarts.min.js') }}"></script>
 <script src="{{ asset('assets/js/es5/echart.options.min.js') }}"></script>
 <script src="{{ asset('assets/js/es5/dashboard.v1.script.js') }}"></script>
