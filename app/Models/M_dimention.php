@@ -11,6 +11,7 @@ class M_dimention extends Model
 
     protected $table = 'dimention';
     protected $primaryKey = 'id_dimensi';
+    public $timestamps=false;
     protected $fillable = [
         'dimensi',
         'bobot_dimensi'

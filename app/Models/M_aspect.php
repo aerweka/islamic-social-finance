@@ -11,6 +11,7 @@ class Aspect extends Model
 
     protected $table = 'aspect';
     protected $primaryKey = 'id_aspek';
+    public $timestamps=false;
     protected $fillable = [
         'kode',
         'aspek',
