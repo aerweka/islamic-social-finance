@@ -7,7 +7,7 @@
 	<form action="/reset-password" method="post">
 		@csrf
 		<input type="hidden" name="token" value="{{ request()->route('token') }}">
-		<input type="hidden" name="email" value="{{}}">
+		<input type="hidden" name="email" value="{{ request()->query('email') }}">
 		<div class="input-group mb-3">
 			<input name="password" type="password" class="form-control" placeholder="Password">
 			<div class="input-group-append">

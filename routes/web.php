@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\User\UserDashboardController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,18 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // public routes (lp)
-
 // tempat route utk authenticated and verified user
 Route::group(['middleware' => ['auth', 'verified']], function () {
     // admin routes
-    Route::group(['middleware' => 'admin', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+        Route::get('/', DashboardController::class)->name('dashboard');
+        
+        Route::group(['prefix' => 'konfig'], function () {
+            // user module
+            Route::resource('/user', UserController::class)->except('show');
+        });
     });
     // registered laznas routes
-    Route::group(['prefix' => 'survey', 'as' => 'surevy.'], function () {
+    Route::group(['prefix' => 'survey', 'as' => 'survey.'], function () {
+        Route::get('/', DashboardController::class)->name('dashboard');
+        Route::resource('/user', UserController::class)->only(['update', 'edit']);
+        Route::get('/', UserDashboardController::class)->name('user.dashboard');
     });
 });

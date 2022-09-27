@@ -15,13 +15,15 @@ class CreateLaznasTable extends Migration
     {
         Schema::create('laznas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
             $table->string('nama');
             $table->string('alamat');
             $table->string('nama_direktur');
             $table->string('tingkatan');
             $table->string('no_telpon');
             $table->timestamps();
+            $table->integer('id_user')->unsigned();
+
+            $table->foreign('id_user', 'fk_user_laznas')->references('id')->on('users');
         });
     }
 
