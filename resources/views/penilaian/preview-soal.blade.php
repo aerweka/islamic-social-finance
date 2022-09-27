@@ -58,15 +58,19 @@
     </style>
 @endsection
 @section('main-content')
+    <?php 
+    use Carbon\Carbon;
+    ?>
     <section>
         <div class="container d-flex align-items-center min-vh-100">
             <div class="row" style="margin-top: 40px; margin-bottom: 40px">
                 <div class="col-md-8 offset-md-2">
+                    <h2>Preview Survey {{Carbon::parse($jawaban[0]->filled_at)->year}}</h2>
                     <div class="card">
                         <div class="card-body" style="padding: 0">
                             <form class="contact-form" method="">
                                 @csrf
-                                @foreach($aspek as $a)
+                                @foreach($dimensi as $a)
                                 <div class="form-section" style="">
                                 @if($a->dimensi == 'Environment')
                                 <div class="card-header sticky" style="background-color: #9BBB59">
@@ -75,24 +79,24 @@
                                 @elseif($a->dimensi == 'Governance')
                                 <div class="card-header sticky" style="background-color: #FABF8F">
                                 @endif
-                                    <h4>Dimensi {{$a->dimensi}}</h4>
-                                    <h6>Aspek {{$a->aspek}}</h6>
-                                    <h6>{{$a->definisi}}</h6>
-                                </div>
+                                <h4>Dimensi {{$a->dimensi}}</h4>
                                 @foreach($pertanyaan as $p)
-                                    @if($p->id_aspek == $a->id_aspek)
+                                @if($p->dimensi == $a->dimensi)
+                                    <h6>Aspek {{$p->aspek}}</h6>
+                                    <h6>{{$p->definisi}}</h6>
+                                </div>
                                     <div class="soal">
                                         <div class="card card-soal">
                                             <h5 style="margin-top:20px">Soal {{$p->kode_indikator}}</h5>
                                             <h5>{{$p->soal}}</h5>
                                             <div class="form-check" disabled>
                                                 @if($tes[$a->dimensi][$p->kode][$p->kode_indikator] == 1)
-                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option1[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "1", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
+                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option1[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "1", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
                                                 <label class="form-check-label" for="option1[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                     <b>{{$p->pilihan_1}}</b>
                                                 </label>
                                                 @else
-                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option1[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "1", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
+                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option1[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "1", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
                                                 <label class="form-check-label" for="option1[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                     {{$p->pilihan_1}}
                                                 </label>
@@ -101,12 +105,12 @@
 
                                                 @if($p->pilihan_2 != null)
                                                 @if($tes[$a->dimensi][$p->kode][$p->kode_indikator] == 2)
-                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option2[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "2", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}' selected>
+                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option2[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "2", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}' selected>
                                                 <label class="form-check-label" for="option2[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                     <b>{{$p->pilihan_2}}</b>
                                                 </label>
                                                 @else
-                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option2[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "2", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
+                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option2[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "2", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
                                                 <label class="form-check-label" for="option2[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                 {{$p->pilihan_2}}
                                                 </label>
@@ -115,12 +119,12 @@
                                                 <div class="pilihan"></div>
 
                                                 @if($tes[$a->dimensi][$p->kode][$p->kode_indikator] == 3)
-                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option3[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "3", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
+                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option3[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "3", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
                                                 <label class="form-check-label" for="option3[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                     <b>{{$p->pilihan_3}}</b>
                                                 </label>
                                                 @else
-                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option3[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "3", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
+                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option3[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "3", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
                                                 <label class="form-check-label" for="option3[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                     {{$p->pilihan_3}}
                                                 </label>
@@ -129,12 +133,12 @@
 
                                                 @if($p->pilihan_4 != null)
                                                 @if($tes[$a->dimensi][$p->kode][$p->kode_indikator] == 4)
-                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option4[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "4", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
+                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option4[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "4", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
                                                 <label class="form-check-label" for="option4[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                 <b>{{$p->pilihan_4}}</b>
                                                 </label>
                                                 @else
-                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option4[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "4", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
+                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option4[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "4", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
                                                 <label class="form-check-label" for="option4[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                     {{$p->pilihan_4}}
                                                 </label>
@@ -143,12 +147,12 @@
                                                 <div class="pilihan"></div>
 
                                                 @if($tes[$a->dimensi][$p->kode][$p->kode_indikator] == 5)
-                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option5[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "5", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}' required>
+                                                <input checked disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option5[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "5", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}' required>
                                                 <label class="form-check-label" for="option5[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                     <b>{{$p->pilihan_5}}</b>
                                                 </label>
                                                 @else
-                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option5[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "5", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}' required>
+                                                <input disabled class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option5[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "5", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$p->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}' required>
                                                 <label class="form-check-label" for="option5[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">
                                                     {{$p->pilihan_5}}
                                                 </label>
@@ -156,9 +160,9 @@
                                                 <div class="pilihan"></div>
                                             </div>
                                         </div>        
+                                        @endif
+                                        @endforeach
                                     </div>
-                                    @endif
-                                    @endforeach
                                 </div>
                                 @endforeach
 

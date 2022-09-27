@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Auth;
+use PDF;
 
 class ModulSurveyController extends Controller
 {
@@ -74,6 +75,8 @@ class ModulSurveyController extends Controller
         ->join('dimention', 'aspect.id_dimensi', '=', 'dimention.id_dimensi')
         ->get();
 
+        $dimensi = DB::table('dimention')->get();
+
         $pertanyaan= DB::table('question')
         ->join('aspect', 'question.id_aspek', '=', 'aspect.id_aspek')
         ->join('dimention', 'aspect.id_dimensi', '=', 'dimention.id_dimensi')
@@ -84,12 +87,12 @@ class ModulSurveyController extends Controller
         ->where('answer.id', Auth::user()->id)
         ->whereYear('answer.filled_at', $request->tahun)
         ->get();
-        // dd($jawaban);
+        // dd($dimensi);
 
         $tes = json_decode($jawaban[0]->jawaban_terpilih,true);
 
         // dd($tes['Environment'][1][1]);
-        return view('penilaian.preview-soal', compact('aspek', 'pertanyaan', 'jawaban', 'tes'));
+        return view('penilaian.preview-soal', compact('aspek', 'pertanyaan', 'jawaban', 'tes', 'dimensi'));
 
     }
 
@@ -114,7 +117,7 @@ class ModulSurveyController extends Controller
         ->count();
         $dim = DB::table('dimention')
         ->get();
-        // dd($count);
+        // dd($dim);
 
 
         for ($i=1; $i <= $count ; $i++) { 
@@ -138,7 +141,14 @@ class ModulSurveyController extends Controller
         // dd($count_dim);
 
 
+        $pdf = PDF::loadview('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim'));
+        return $pdf->download('Hasil-Survey-' .$request->tahun .'.pdf');
+        // return $pdf->stream();
+        // return view('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim'));
+    }
 
-        return view('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim'));
+    public function tes(){
+        $pdf = PDF::loadview('penilaian.cetak');
+        return $pdf->download('tes.pdf');
     }
 }
