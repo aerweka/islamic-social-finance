@@ -85,6 +85,7 @@
 	</div>
 </div>
 
+<div class="row">
 <div class="col-md-12 mb-4">
 	<div class="card text-left">
 
@@ -133,6 +134,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 @endsection
