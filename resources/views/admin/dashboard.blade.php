@@ -8,63 +8,12 @@
 	<h1>Version 1</h1>
 	<ul>
 		<li><a href="">Dashboard</a></li>
-		<li>Version 1</li>
 	</ul>
 </div>
 
 <div class="separator-breadcrumb border-top"></div>
 
-<div class="row">
-	<!-- ICON BG -->
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-			<div class="card-body text-center">
-				<i class="i-Add-User"></i>
-				<div class="content">
-					<p class="text-muted mt-2 mb-0">New Leads</p>
-					<p class="text-primary text-24 line-height-1 mb-2">205</p>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-			<div class="card-body text-center">
-				<i class="i-Financial"></i>
-				<div class="content">
-					<p class="text-muted mt-2 mb-0">Sales</p>
-					<p class="text-primary text-24 line-height-1 mb-2">$4021</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-			<div class="card-body text-center">
-				<i class="i-Checkout-Basket"></i>
-				<div class="content">
-					<p class="text-muted mt-2 mb-0">Orders</p>
-					<p class="text-primary text-24 line-height-1 mb-2">80</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-			<div class="card-body text-center">
-				<i class="i-Money-2"></i>
-				<div class="content">
-					<p class="text-muted mt-2 mb-0">Expense</p>
-					<p class="text-primary text-24 line-height-1 mb-2">$1200</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
 
 <div class="row">
 	<div class="col-lg-8 col-md-12">
@@ -126,7 +75,14 @@
 							<td>{{$answer-> total_soc}}</td>
 							<td>{{$answer-> total_gov}}</td>
 							<td>{{$answer-> total_all}}</td>
-							<td>{{$answer-> iteration}}</td>
+							<td>
+								<a type="button" href="admin/preview/{{$answer->id_jawaban}}" class="btn btn-secondary" style="margin-bottom:5px">Preview Survey
+									<i class="fas fa-eye mr-1"></i>
+								</a>
+								<a type="button" href="admin/cetak/{{$answer->id_jawaban}}" class="btn btn-primary">Cetak Hasil
+									<i class="fas fa-print mr-1"></i>
+								</a>
+							</td>
 						</tr>
 						@endforeach
 					</tbody>
@@ -183,8 +139,8 @@ if (echartElemBar) {
 				formatter: '{value}'
 			},
 			min: 0,
-			max: 500,
-			interval: 100,
+			max: 2,
+			interval: 0.25,
 			axisLine: {
 				show: false
 			},
