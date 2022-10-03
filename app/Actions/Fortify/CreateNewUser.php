@@ -35,7 +35,7 @@ class CreateNewUser implements CreatesNewUsers
             'nama_direktur_laznas' => ['required', 'string', 'max:255'],
             'tingkatan_laznas' => ['required', 'string', 'max:255'],
             'no_telpon_laznas' => ['required', 'string', 'max:255'],
-            'is_admin' => ['required']
+            'email_verified_at' => now()
         ])->validate();
 
         return User::create([
@@ -47,7 +47,6 @@ class CreateNewUser implements CreatesNewUsers
             'nama_direktur_laznas' => $input['nama_direktur_laznas'],
             'tingkatan_laznas' => $input['tingkatan_laznas'],
             'no_telpon_laznas' => $input['no_telpon_laznas'],
-            'is_admin' => $input['is_admin'] ? $input['is_admin'] : 0,
         ]);
     }
 }

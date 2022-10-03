@@ -30,5 +30,11 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        $this->call([
+            dimention::class,
+            aspect::class,
+            question::class
+        ]);
     }
 }

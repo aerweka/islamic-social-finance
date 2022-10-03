@@ -18,10 +18,10 @@ class CreateAnswerTable extends Migration
             $table->integer('id')->unsigned();
             $table->longText('jawaban_terpilih');
             $table->timestamp('filled_at');
-            $table->integer('total_env');
-            $table->integer('total_gov');
-            $table->integer('total_soc');
-            $table->integer('total_all');
+            $table->float('total_env');
+            $table->float('total_gov');
+            $table->float('total_soc');
+            $table->float('total_all');
 
             $table->foreign('id', 'fk_user')->references('id')->on('users');
         });

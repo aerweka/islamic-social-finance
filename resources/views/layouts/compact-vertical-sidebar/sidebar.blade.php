@@ -28,13 +28,13 @@
 				<li class="nav-item ">
 					<a class="{{ Route::currentRouteName() == 'dashboard_version_1' ? 'open' : '' }}"
 						href="{{ route('admin.dashboard') }}">
-						<i class="nav-icon i-Clock-3"></i>
-						<span class="item-name">Version 1</span>
+						<i class="nav-icon i-Bar-Chart"></i>
+						<span class="item-name">Dashboard</span>
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="{{ Route::currentRouteName() == 'admin.user./*' ? 'open' : '' }}"
-						href="{{ auth()->user()->is_admin ? '/admin/konfig/user' : route('survey.user.edit', ['user' => auth()->id]) }}">
+						href="{{ auth()->user()->is_admin ? '/admin/konfig/user' : route('survey.user.edit', ['user' => auth()->user()->id]) }}">
 						<i class="nav-icon i-Administrator"></i>
 						<span class="item-name">Akun</span>
 					</a>
