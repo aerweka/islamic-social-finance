@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // admin routes
     Route::group(['middleware' => ['admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('/', DashboardController::class)->name('dashboard');
-        
+
         Route::group(['prefix' => 'konfig'], function () {
             // user module
             Route::resource('/user', UserController::class)->except('show');

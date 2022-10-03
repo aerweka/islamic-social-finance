@@ -18,7 +18,7 @@
         </div>
 
         <div class="flex-grow-1"></div>
-        @include('layouts.common.footer')
+        {{-- @include('layouts.common.footer') --}}
     </div>
     <!-- ============ Body content End ============= -->
 </div>

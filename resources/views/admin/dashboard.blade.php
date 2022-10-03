@@ -15,58 +15,6 @@
 <div class="separator-breadcrumb border-top"></div>
 
 <div class="row">
-	<!-- ICON BG -->
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-			<div class="card-body text-center">
-				<i class="i-Add-User"></i>
-				<div class="content">
-					<p class="text-muted mt-2 mb-0">New Leads</p>
-					<p class="text-primary text-24 line-height-1 mb-2">205</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-			<div class="card-body text-center">
-				<i class="i-Financial"></i>
-				<div class="content">
-					<p class="text-muted mt-2 mb-0">Sales</p>
-					<p class="text-primary text-24 line-height-1 mb-2">$4021</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-			<div class="card-body text-center">
-				<i class="i-Checkout-Basket"></i>
-				<div class="content">
-					<p class="text-muted mt-2 mb-0">Orders</p>
-					<p class="text-primary text-24 line-height-1 mb-2">80</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-lg-3 col-md-6 col-sm-6">
-		<div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
-			<div class="card-body text-center">
-				<i class="i-Money-2"></i>
-				<div class="content">
-					<p class="text-muted mt-2 mb-0">Expense</p>
-					<p class="text-primary text-24 line-height-1 mb-2">$1200</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-</div>
-
-<div class="row">
 	<div class="col-lg-8 col-md-12">
 		<div class="card mb-4">
 			<div class="card-body">
@@ -84,52 +32,53 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-12 mb-4">
+		<div class="card text-left">
 
-<div class="col-md-12 mb-4">
-	<div class="card text-left">
+			<div class="card-body">
+				<h4 class="card-title mb-3">Feature enable / disable</h4>
 
-		<div class="card-body">
-			<h4 class="card-title mb-3">Feature enable / disable</h4>
+				<p>Disabling features that you don't wish to use for a particular table is easily done by setting a variable
+					in the initialisation object. The full list of available options is <a
+						href="https://datatables.net/reference/option">available in the DataTables reference</a>.</p>
 
-			<p>Disabling features that you don't wish to use for a particular table is easily done by setting a variable
-				in the initialisation object. The full list of available options is <a
-					href="https://datatables.net/reference/option">available in the DataTables reference</a>.</p>
-
-			<div class="table-responsive">
-				<table id="tabel_answer" class="display table table-striped table-bordered" style="width:100%">
-					<thead>
-						<tr>
-							<th>No</th>
-							<th>Nama</th>
-							<th>Nama Laznas</th>
-							<th>No Telp</th>
-							<th>Tingkatan</th>
-							<th>Tanggal Mengisi</th>
-							<th>Nilai Environment</th>
-							<th>Nilai Social</th>
-							<th>Nilai Governance</th>
-							<th>Total Nilai</th>
-							<th>Detail</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach ($getchart_answer as $answer)
-						<tr>
-							<td>{{$loop-> iteration}}</td>
-							<td>{{$answer-> users-> name}}</td>
-							<td>{{$answer-> users-> nama_laznas}}</td>
-							<td>{{$answer-> users-> no_telpon_laznas}}</td>
-							<td>{{$answer-> users-> tingkatan_laznas}}</td>
-							<td>{{$answer-> filled_at}}</td>
-							<td>{{$answer-> total_env}}</td>
-							<td>{{$answer-> total_soc}}</td>
-							<td>{{$answer-> total_gov}}</td>
-							<td>{{$answer-> total_all}}</td>
-							<td>{{$answer-> iteration}}</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
+				<div class="table-responsive">
+					<table id="tabel_answer" class="display table table-striped table-bordered" style="width:100%">
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Nama</th>
+								<th>Nama Laznas</th>
+								<th>No Telp</th>
+								<th>Tingkatan</th>
+								<th>Tanggal Mengisi</th>
+								<th>Nilai Environment</th>
+								<th>Nilai Social</th>
+								<th>Nilai Governance</th>
+								<th>Total Nilai</th>
+								<th>Detail</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach ($getchart_answer as $answer)
+							<tr>
+								<td>{{$loop-> iteration}}</td>
+								<td>{{$answer-> users-> name}}</td>
+								<td>{{$answer-> users-> nama_laznas}}</td>
+								<td>{{$answer-> users-> no_telpon_laznas}}</td>
+								<td>{{$answer-> users-> tingkatan_laznas}}</td>
+								<td>{{$answer-> filled_at}}</td>
+								<td>{{$answer-> total_env}}</td>
+								<td>{{$answer-> total_soc}}</td>
+								<td>{{$answer-> total_gov}}</td>
+								<td>{{$answer-> total_all}}</td>
+								<td>{{$answer-> iteration}}</td>
+							</tr>
+							@endforeach
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
