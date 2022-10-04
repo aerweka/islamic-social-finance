@@ -34,7 +34,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'tingkatan_laznas' => ['required', 'string', 'max:255'],
             'no_telpon_laznas' => ['required', 'string', 'max:255'],
         ])->validateWithBag('updateProfileInformation');
-
+        dd('here');
         if (
             $input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail
