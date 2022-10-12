@@ -130,7 +130,7 @@ class ModulSurveyController extends Controller
         ->count();
         $dim = DB::table('dimention')
         ->get();
-        // dd($dim);
+        // dd($pertanyaan);
 
 
         for ($i=1; $i <= $count ; $i++) { 
@@ -151,10 +151,10 @@ class ModulSurveyController extends Controller
             $sum_dimensi[$x->dimensi] = array_sum($sum_aspek[$x->dimensi]) *$x->bobot_dimensi;
             $sum_total =  array_sum($sum_dimensi)/5;
         }
-        // dd($count_dim);
+        // dd($tes);
 
 
-        $pdf = PDF::loadview('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim'));
+        $pdf = PDF::loadview('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim', 'sum_indikator', 'tes'));
         return $pdf->download('Hasil-Survey-' .$request->tahun .'.pdf');
         // return $pdf->stream();
         // return view('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim'));

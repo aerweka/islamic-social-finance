@@ -107,7 +107,7 @@ use Carbon\Carbon;
 												<i class="fas fa-eye mr-1"></i>
 												Preview
 											</a>
-											<a href="survey/cetak-hasil/{{Carbon::parse($a->filled_at)->year}}" class="btn btn-primary ml-4 mb-4 px-4">
+											<a href="survey/cetak-hasil/{{Carbon::parse($a->filled_at)->year}}" target="_blank" class="btn btn-primary ml-4 mb-4 px-4">
 												<i class="fas fa-print mr-1"></i>
 												Cetak Hasil
 											</a>
