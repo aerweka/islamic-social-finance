@@ -8,10 +8,19 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Auth;
 use PDF;
+use Carbon\Carbon;
 
 class ModulSurveyController extends Controller
 {
     public function index(){
+        $user_id = Auth()->user()->id;
+        $cek_mengisi = DB::table('answer')
+        ->where('id', $user_id)
+        ->whereYear('filled_at',Carbon::now()->year)->count();
+
+        if ($cek_mengisi != 0) {
+            return redirect('survey/');
+        }
         $aspek = DB::table('aspect')
         ->join('dimention', 'aspect.id_dimensi', '=', 'dimention.id_dimensi')
         ->get();
@@ -24,6 +33,10 @@ class ModulSurveyController extends Controller
         // dd($pertanyaan);
 
         return view('penilaian.soal', compact('aspek', 'pertanyaan'));
+    }
+
+    public function preSoal(){
+        return view('penilaian.pre-soal');
     }
 
     public function submit(Request $request){
@@ -67,7 +80,7 @@ class ModulSurveyController extends Controller
             'total_all' => $sum_total
         ]);
 
-        return view('user.dashboard');
+        return redirect('survey/');
     }
 
     public function previewSoal(Request $request){

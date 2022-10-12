@@ -8,11 +8,12 @@
 	<h1>Version 1</h1>
 	<ul>
 		<li><a href="">Dashboard</a></li>
-		<li>Version 1</li>
 	</ul>
 </div>
 
 <div class="separator-breadcrumb border-top"></div>
+
+
 
 <div class="row">
 	<div class="col-lg-8 col-md-12">
@@ -32,56 +33,64 @@
 		</div>
 	</div>
 </div>
+
 <div class="row">
-	<div class="col-md-12 mb-4">
-		<div class="card text-left">
+<div class="col-md-12 mb-4">
+	<div class="card text-left">
 
-			<div class="card-body">
-				<h4 class="card-title mb-3">Feature enable / disable</h4>
+		<div class="card-body">
+			<h4 class="card-title mb-3">Feature enable / disable</h4>
 
-				<p>Disabling features that you don't wish to use for a particular table is easily done by setting a variable
-					in the initialisation object. The full list of available options is <a
-						href="https://datatables.net/reference/option">available in the DataTables reference</a>.</p>
+			<p>Disabling features that you don't wish to use for a particular table is easily done by setting a variable
+				in the initialisation object. The full list of available options is <a
+					href="https://datatables.net/reference/option">available in the DataTables reference</a>.</p>
 
-				<div class="table-responsive">
-					<table id="tabel_answer" class="display table table-striped table-bordered" style="width:100%">
-						<thead>
-							<tr>
-								<th>No</th>
-								<th>Nama</th>
-								<th>Nama Laznas</th>
-								<th>No Telp</th>
-								<th>Tingkatan</th>
-								<th>Tanggal Mengisi</th>
-								<th>Nilai Environment</th>
-								<th>Nilai Social</th>
-								<th>Nilai Governance</th>
-								<th>Total Nilai</th>
-								<th>Detail</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach ($getchart_answer as $answer)
-							<tr>
-								<td>{{$loop-> iteration}}</td>
-								<td>{{$answer-> users-> name}}</td>
-								<td>{{$answer-> users-> nama_laznas}}</td>
-								<td>{{$answer-> users-> no_telpon_laznas}}</td>
-								<td>{{$answer-> users-> tingkatan_laznas}}</td>
-								<td>{{$answer-> filled_at}}</td>
-								<td>{{$answer-> total_env}}</td>
-								<td>{{$answer-> total_soc}}</td>
-								<td>{{$answer-> total_gov}}</td>
-								<td>{{$answer-> total_all}}</td>
-								<td>{{$answer-> iteration}}</td>
-							</tr>
-							@endforeach
-						</tbody>
-					</table>
-				</div>
+			<div class="table-responsive">
+				<table id="tabel_answer" class="display table table-striped table-bordered" style="width:100%">
+					<thead>
+						<tr>
+							<th>No</th>
+							<th>Nama</th>
+							<th>Nama Laznas</th>
+							<th>No Telp</th>
+							<th>Tingkatan</th>
+							<th>Tanggal Mengisi</th>
+							<th>Nilai Environment</th>
+							<th>Nilai Social</th>
+							<th>Nilai Governance</th>
+							<th>Total Nilai</th>
+							<th>Detail</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach ($getchart_answer as $answer)
+						<tr>
+							<td>{{$loop-> iteration}}</td>
+							<td>{{$answer-> users-> name}}</td>
+							<td>{{$answer-> users-> nama_laznas}}</td>
+							<td>{{$answer-> users-> no_telpon_laznas}}</td>
+							<td>{{$answer-> users-> tingkatan_laznas}}</td>
+							<td>{{$answer-> filled_at}}</td>
+							<td>{{$answer-> total_env}}</td>
+							<td>{{$answer-> total_soc}}</td>
+							<td>{{$answer-> total_gov}}</td>
+							<td>{{$answer-> total_all}}</td>
+							<td>
+								<a type="button" href="admin/preview/{{$answer->id_jawaban}}" class="btn btn-secondary" style="margin-bottom:5px">Preview Survey
+									<i class="fas fa-eye mr-1"></i>
+								</a>
+								<a type="button" href="admin/cetak/{{$answer->id_jawaban}}" class="btn btn-primary">Cetak Hasil
+									<i class="fas fa-print mr-1"></i>
+								</a>
+							</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 @endsection
@@ -130,8 +139,8 @@ if (echartElemBar) {
 				formatter: '{value}'
 			},
 			min: 0,
-			max: 500,
-			interval: 100,
+			max: 2,
+			interval: 0.25,
 			axisLine: {
 				show: false
 			},

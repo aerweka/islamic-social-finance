@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -14,8 +15,10 @@ class UserDashboardController extends Controller
     {
         $user_id = Auth()->user()->id;
         $answer = M_answer::where('id',$user_id)->orderBy('filled_at', 'DESC')->get();
-        $cek_mengisi = $answer->where('filled_at',Carbon::now()->year)->count();
-        
+        // $cek_mengisi = $answer->where('filled_at',Carbon::now()->year)->count();
+        $cek_mengisi = DB::table('answer')
+        ->where('id', $user_id)
+        ->whereYear('filled_at',Carbon::now()->year)->count();
         
         $chart_answer = M_answer::where('id',$user_id)->orderBy('filled_at', 'ASC')->get();
 
@@ -32,7 +35,7 @@ class UserDashboardController extends Controller
             $chart_total_all[$i] = $chart_answer[$i]->total_all; 
         }
         // $chart_tahun = $answer->['filled_at'];
-        // dd($chart_tahun);
+        // dd($chart_total_all);
 
         
         return view('user.dashboard', compact('answer','cek_mengisi','chart_tahun','chart_total_env','chart_total_soc','chart_total_gov','chart_total_all'));
