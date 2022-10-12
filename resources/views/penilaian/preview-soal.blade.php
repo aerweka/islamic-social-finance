@@ -73,18 +73,20 @@
                                 @foreach($dimensi as $a)
                                 <div class="form-section" style="">
                                 @if($a->dimensi == 'Environment')
-                                <div class="card-header sticky" style="background-color: #9BBB59">
+                                <div class="card-header sticky" style="background-color: #9BBB59; margin-bottom: 15px">
                                 @elseif($a->dimensi =='Social')
-                                <div class="card-header sticky" style="background-color: #C4BD97">
+                                <div class="card-header sticky" style="background-color: #C4BD97; margin-bottom: 15px">
                                 @elseif($a->dimensi == 'Governance')
-                                <div class="card-header sticky" style="background-color: #FABF8F">
+                                <div class="card-header sticky" style="background-color: #FABF8F; margin-bottom: 15px">
                                 @endif
                                 <h4>Dimensi {{$a->dimensi}}</h4>
                                 @foreach($pertanyaan as $p)
                                 @if($p->dimensi == $a->dimensi)
-                                    <h6>Aspek {{$p->aspek}}</h6>
-                                    <h6>{{$p->definisi}}</h6>
-                                </div>
+                            </div>
+                            <div class="" style="margin-left: 35px">
+                                <h6>Aspek: {{$p->aspek}}</h6>
+                                <h6>{{$p->definisi}}</h6>
+                            </div>
                                     <div class="soal">
                                         <div class="card card-soal">
                                             <h5 style="margin-top:20px">Soal {{$p->kode_indikator}}</h5>

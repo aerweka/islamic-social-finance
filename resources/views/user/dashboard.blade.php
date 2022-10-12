@@ -29,7 +29,7 @@ use Carbon\Carbon;
 				<div class="col text-sm-center text-center">
 					@if ($cek_mengisi == 0)
 					<h3 class="card-title my-4 font-weight-bold">Anda Belum Mengerjakan Survey Tahun Ini</h3>
-					<a href="#tambahsesi" data-toggle="modal" class="btn btn-primary ml-3 mb-3 px-3">
+					<a href="survey/pre-soal" class="btn btn-primary ml-3 mb-3 px-3">
 						<i class="fas fa-plus mr-1"></i>
 						Kerjakan Survey Tahun ini
 					</a>
@@ -171,8 +171,8 @@ if (echartElemBar) {
 				formatter: '{value}'
 			},
 			min: 0,
-			max: 500,
-			interval: 100,
+			max: 2,
+			interval: 0.25,
 			axisLine: {
 				show: false
 			},
