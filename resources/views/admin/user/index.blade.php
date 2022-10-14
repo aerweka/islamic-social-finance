@@ -44,8 +44,8 @@
                                         <td>{{ $data->email }}</td>
                                         <td>{{ $data->nama_laznas }}</td>
                                         <td>{{ $data->nama_direktur_laznas }}</td>
-                                        <td>{{ $data->no_telpon_laznas }}</td>
                                         <td>{{ $data->tingkatan_laznas }}</td>
+                                        <td>{{ $data->no_telpon_laznas }}</td>
                                         <td>
                                             <a href="{{ route('admin.user.edit', ['user' => $data->id]) }}"
                                                 class="btn btn-sm btn-info"><i class="i-Information"></i></a>
@@ -72,11 +72,17 @@
                 dom: 'Bfrtip',
                 buttons: [{
                         extend: 'excel',
-                        title: 'Data User export'
+                        title: 'Data User export',
+                        exportOption: {
+                            columns: 'th:not(:last-child)'
+                        }
                     },
                     {
                         extend: 'pdf',
-                        title: 'Data User export'
+                        title: 'Data User export',
+                        exportOption: {
+                            columns: 'th:not(:last-child)'
+                        }
                     }
                 ],
 

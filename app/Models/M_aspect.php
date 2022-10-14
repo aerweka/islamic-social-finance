@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Aspect extends Model
+class M_aspect extends Model
 {
     use HasFactory;
 
     protected $table = 'aspect';
     protected $primaryKey = 'id_aspek';
-    public $timestamps=false;
+    public $timestamps = false;
     protected $fillable = [
         'kode',
         'aspek',

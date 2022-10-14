@@ -222,8 +222,9 @@ if (echartElemBar) {
 	var echartElemPie = document.getElementById('pie_user');
     if (echartElemPie) {
         var echartPie = echarts.init(echartElemPie);
+		// color: ['#62549c', '#7566b5', '#7d6cbb', '#8877bd', '#9181bd', '#6957af'],
         echartPie.setOption({
-            color: ['#62549c', '#7566b5', '#7d6cbb', '#8877bd', '#9181bd', '#6957af'],
+            color: ['#3120E0', '#3B9AE1', '#21E1E1', '#4CACBC', '#0078AA', '#3AB4F2'],
             tooltip: {
                 show: true,
                 backgroundColor: 'rgba(0, 0, 0, .8)'
