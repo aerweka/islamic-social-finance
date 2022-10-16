@@ -17,6 +17,7 @@ class CreateDimentionTable extends Migration
             $table->increments('id_dimensi');
             $table->string('dimensi');
             $table->float('bobot_dimensi');
+            $table->string('color');
         });
     }
 
