@@ -75,7 +75,7 @@
 	<p class="text-red">{{ $message }}</p>
 	@enderror
 	<div class="input-group mb-3">
-		<input name="no_telpon_laznas" type="text" class="form-control" placeholder="Telepon instansi laznas">
+		<input name="no_telpon_laznas" type="text" class="form-control" placeholder="+62">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-phone"></span>

@@ -21,7 +21,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index', compact($data = User::all()));
+        $data = User::all();
+        return view('admin.user.index', compact('data'));
     }
 
     /**
@@ -70,7 +71,8 @@ class UserController extends Controller
      */
     public function edit($user)
     {
-        return view('admin.user.edit', compact($data = User::findOrFail($user)));
+        $data = User::findOrFail($user);
+        return view('admin.user.edit', compact('data'));
     }
 
     /**

@@ -11,8 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Laravel\Fortify\Contracts\LoginResponse;
+use Laravel\Fortify\Contracts\LogoutResponse;
+use Laravel\Fortify\Contracts\RegisterResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -23,7 +24,33 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->instance(LogoutResponse::class, new class implements LogoutResponse
+        {
+            public function toResponse($request)
+            {
+                return redirect('/login');
+            }
+        });
+
+        $this->app->instance(LoginResponse::class, new class implements LoginResponse
+        {
+            public function toResponse($request)
+            {
+                $home = auth()->user()->is_admin ? '/admin' : '/survey';
+
+                return redirect()->intended($home);
+            }
+        });
+
+        $this->app->instance(RegisterResponse::class, new class implements RegisterResponse
+        {
+            public function toResponse($request)
+            {
+                $home = auth()->user()->is_admin ? '/admin' : '/survey';
+
+                return redirect()->intended($home);
+            }
+        });
     }
 
     /**
