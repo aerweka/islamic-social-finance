@@ -39,11 +39,7 @@
 	<div class="card text-left">
 
 		<div class="card-body">
-			<h4 class="card-title mb-3">Feature enable / disable</h4>
-
-			<p>Disabling features that you don't wish to use for a particular table is easily done by setting a variable
-				in the initialisation object. The full list of available options is <a
-					href="https://datatables.net/reference/option">available in the DataTables reference</a>.</p>
+			<h4 class="card-title mb-3">Daftar Pengukuran</h4>
 
 			<div class="table-responsive">
 				<table id="tabel_answer" class="display table table-striped table-bordered" style="width:100%">
@@ -55,10 +51,10 @@
 							<th>No Telp</th>
 							<th>Tingkatan</th>
 							<th>Tanggal Mengisi</th>
-							<th>Nilai Environment</th>
-							<th>Nilai Social</th>
-							<th>Nilai Governance</th>
-							<th>Total Nilai</th>
+							<th>Score Environment</th>
+							<th>Score Social</th>
+							<th>Score Governance</th>
+							<th>Total Index Kinerja</th>
 							<th>Detail</th>
 						</tr>
 					</thead>
@@ -76,10 +72,10 @@
 							<td>{{$answer-> total_gov}}</td>
 							<td>{{$answer-> total_all}}</td>
 							<td>
-								<a type="button" href="admin/preview/{{$answer->id_jawaban}}" class="btn btn-secondary" style="margin-bottom:5px">Preview Survey
+								<a type="button" href="admin/preview/{{$answer->id_jawaban}}" class="btn btn-secondary" style="margin-bottom:5px">Preview
 									<i class="fas fa-eye mr-1"></i>
 								</a>
-								<a type="button" href="admin/cetak/{{$answer->id_jawaban}}" class="btn btn-primary">Cetak Hasil
+								<a type="button" href="admin/cetak/{{$answer->id_jawaban}}" target="_blank" class="btn btn-primary">Cetak Hasil
 									<i class="fas fa-print mr-1"></i>
 								</a>
 							</td>
@@ -136,11 +132,11 @@ if (echartElemBar) {
 		yAxis: [{
 			type: 'value',
 			axisLabel: {
-				formatter: '{value}'
+				formatter: '{value}%'
 			},
 			min: 0,
-			max: 2,
-			interval: 0.25,
+			max: 100,
+			interval: 25,
 			axisLine: {
 				show: false
 			},

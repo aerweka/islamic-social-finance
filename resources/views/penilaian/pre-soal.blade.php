@@ -56,7 +56,7 @@
             $('#start').on('click', function () {
             swal({
                 // title: 'Yakin jawaban ingin dikirim?',
-                text: "Survey ini akan berlangsung sekali jalan, pastikan Anda mengerjakan sampai selesai",
+                text: "Survey ini akan berlangsung sekali jalan, pastikan Anda mengerjakan sampai selesai untuk menyimpan jawaban",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#0CC27E',

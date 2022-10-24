@@ -100,8 +100,8 @@
                                     @if($p->id_aspek == $a->id_aspek)
                                     <div class="soal">
                                         <div class="card card-soal">
-                                            <h5 style="margin-top:20px">{{$p->kode_indikator}}</h5>
-                                            <h5>Soal{{$p->soal}}</h5>
+                                            <h5 style="margin-top:20px">Soal {{$p->kode_indikator}}</h5>
+                                            <h5>{{$p->soal}}</h5>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="answer[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" id="option1[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]" value='{"nilai": "1", "bobot_dimensi": "{{$a->bobot_dimensi}}", "bobot_aspek": "{{$a->bobot_aspek}}", "bobot_soal": "{{$p->bobot_pertanyaan}}"}'>
                                                 <label class="form-check-label" for="option1[{{$a->dimensi}}][{{$p->kode}}][{{$p->kode_indikator}}]">

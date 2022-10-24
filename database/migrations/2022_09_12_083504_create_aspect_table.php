@@ -18,7 +18,7 @@ class CreateAspectTable extends Migration
             $table->integer('kode');
             $table->string('aspek');
             $table->longText('definisi');
-            $table->float('bobot_aspek');
+            $table->double('bobot_aspek');
             $table->integer('id_dimensi')->unsigned();
 
             $table->foreign('id_dimensi', 'fk_dimensi')->references('id_dimensi')->on('dimention');
