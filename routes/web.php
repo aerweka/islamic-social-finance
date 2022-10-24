@@ -46,7 +46,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('/soal', [ModulSurveyController::class, 'index']);
         Route::post('/submitsoal', [ModulSurveyController::class, 'submit'])->name('user.submitsoal');
         Route::get('/preview/{tahun}', [ModulSurveyController::class, 'previewSoal']);
-        Route::get('/cetak-hasil/{tahun}', [ModulSurveyController::class, 'cetakHasil']);
+        Route::get('/cetak-hasil-lengkap/{tahun}', [ModulSurveyController::class, 'cetakHasil']);
+        Route::get('/cetak-hasil-rangkuman/{tahun}', [ModulSurveyController::class, 'cetakHasil2']);
         // Route::get('/tes', [ModulSurveyController::class, 'tes']);
     });
 });

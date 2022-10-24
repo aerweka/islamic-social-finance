@@ -22,7 +22,7 @@
         <div class="submenu-area" data-parent="dashboard">
             <header>
                 <h6>Dashboards</h6>
-                <p>Lorem ipsum dolor sit.</p>
+                <p>Selamat Datang</p>
             </header>
             <ul class="childNav" data-parent="dashboard">
                 <li class="nav-item ">

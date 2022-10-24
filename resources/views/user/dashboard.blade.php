@@ -72,14 +72,14 @@ use Carbon\Carbon;
 						<div class="card-header" style="font-size: 20px !important;">
 							<div class="row">
 								<div class="col d-flex flex-row align-items-center">
-									<h2 class="card-title my-4 font-weight-bold">History Survey</h2>
+									<h2 class="card-title my-4 font-weight-bold">History Pengukuran</h2>
 
 								</div>
 							</div>
 						</div>
 						@foreach ($answer as $a)
 						<div class="card-body">
-							<h5 class="card-title">Hasil Survey Tahun {{Carbon::parse($a->filled_at)->year}} </h5>
+							<h5 class="card-title">Hasil Pengukuran Tahun {{Carbon::parse($a->filled_at)->year}} </h5>
 							<div class="card mb-3">
 								<div class="card-body">
 									<div class="row">
@@ -88,28 +88,28 @@ use Carbon\Carbon;
 										</div>
 										<div class="col-9">
 											<h2>
-												Total Skor : {{$a->total_all}}
+												Total Index Kinerja : {{$a->total_all}} %
 											</h2>
 											<hr>
 											<h5 class="mb-2">
-												Skor Environmental : {{$a->total_env}}
+												Skor Environmental : {{$a->total_env}} %
 											</h5>
 											<h5 class="mb-2">
-												Skor Sosial : {{$a->total_soc}}
+												Skor Sosial : {{$a->total_soc}} %
 											</h5>
 											<h5 class="mb-2">
-												Skor Governance : {{$a->total_gov}}
+												Skor Governance : {{$a->total_gov}} %
 											</h5>
 										</div>
 										<div class="col text-sm-right text-left">
 
-											<a href="survey/preview/{{Carbon::parse($a->filled_at)->year}}" class="btn btn-secondary ml-4 mb-4 px-4">
+											<a href="survey/cetak-hasil-rangkuman/{{Carbon::parse($a->filled_at)->year}}" target="_blank" class="btn btn-secondary ml-4 mb-4 px-4">
 												<i class="fas fa-eye mr-1"></i>
-												Preview
+												Cetak Hasil Rangkuman
 											</a>
-											<a href="survey/cetak-hasil/{{Carbon::parse($a->filled_at)->year}}" class="btn btn-primary ml-4 mb-4 px-4">
+											<a href="survey/cetak-hasil-lengkap/{{Carbon::parse($a->filled_at)->year}}" target="_blank" class="btn btn-primary ml-4 mb-4 px-4">
 												<i class="fas fa-print mr-1"></i>
-												Cetak Hasil
+												Cetak Hasil Lengkap
 											</a>
 										</div>
 									</div>
@@ -168,11 +168,11 @@ if (echartElemBar) {
 		yAxis: [{
 			type: 'value',
 			axisLabel: {
-				formatter: '{value}'
+				formatter: '{value}%'
 			},
 			min: 0,
-			max: 2,
-			interval: 0.25,
+			max: 100,
+			interval: 25,
 			axisLine: {
 				show: false
 			},

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('page-css')
+<link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">
 <style>
     .list{
         font-size: 15px;
@@ -38,11 +39,41 @@
                 </div>
             </div>
             <div class="col text-sm-center text-center" style="margin-top: 10px">
-                <a href="/survey/soal" class="btn btn-primary ml-3 mb-3 px-3">
+                <a class="btn btn-primary ml-3 mb-3 px-3" id="start">
                     Mulai Kerjakan
                 </a>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('page-js')
+    <script src="{{asset('assets/js/vendor/sweetalert2.min.js')}}"></script>
+    <script>
+        var a = document.createElement('a');
+        $(document).ready(function () {
+            $('#start').on('click', function () {
+            swal({
+                // title: 'Yakin jawaban ingin dikirim?',
+                text: "Survey ini akan berlangsung sekali jalan, pastikan Anda mengerjakan sampai selesai untuk menyimpan jawaban",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#0CC27E',
+                cancelButtonColor: '#FF586B',
+                confirmButtonText: 'Mulai Kerjakan',
+                cancelButtonText: 'Tidak',
+                confirmButtonClass: 'btn btn-success mr-5',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
+            }).then(function () {
+                window.location.href='/survey/soal'
+            }, function (dismiss) {
+                // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+                if (dismiss === 'cancel') {
+                    }
+                })
+            });
+        })
+    </script>
 @endsection

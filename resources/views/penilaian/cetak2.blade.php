@@ -43,36 +43,6 @@
         </tbody>
     </table>
 
-    <table class="table table-bordered col-md-8 offset-md-2" style="line-height: 17px; font-size:13px">
-        <thead class="thead-dark">
-            <tr style="text-align: center">
-                <th width="50px">Dimensi</th>
-                <th>Aspek</th>
-                <th>Indikator</th>
-                <th width="87px">Nilai Jawaban</th>
-                <th>Bobot</th>
-                <th width="70px">Nilai Akhir(nilai jawaban/5*bobot)</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($pertanyaan as $p)
-            <tr>
-                @if($p->dimensi == 'Environment')
-                <td style="background-color: #9BBB59">{{$p->dimensi}}</td>
-                @elseif($p->dimensi == 'Social')
-                <td style="background-color: #C4BD97">{{$p->dimensi}}</td>
-                @else
-                <td style="background-color: #FABF8F">{{$p->dimensi}}</td>
-                @endif
-                <td>{{$p->aspek}}</td>
-                <td>{{$p->soal}}</td>
-                <td style="text-align: center">{{$tes[$p->dimensi][$p->kode][$p->kode_indikator]}}</td>
-                <td>{{round($p->bobot_pertanyaan*100)}}%</td>
-                <td style="text-align: center">{{round($sum_indikator[$p->dimensi][$p->kode][$p->kode_indikator]*100)}}%</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
     <br>    
     <table class="table table-bordered col-md-8 offset-md-2" style="line-height: 10px; font-size: 13px">
         <thead class="thead-dark">
