@@ -84,7 +84,7 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::registerView(function () {
             $provinces = Province::all(['code', 'name']);
-            return view('auth.register', compact('provinces', 'cities', 'districts', 'villages'));
+            return view('auth.register', compact('provinces'));
         });
 
         Fortify::requestPasswordResetLinkView(function () {

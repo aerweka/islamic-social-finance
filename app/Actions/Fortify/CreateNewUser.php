@@ -49,10 +49,17 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
             'nama_laznas' => $input['nama_laznas'],
-            'alamat_laznas' => $input['alamat_laznas'],
+            'alamat_jalan' => $input['alamat_jalan'],
+            'alamat_prov' => $input['alamat_prov'],
+            'alamat_kabkot' => $input['alamat_kabkot'],
+            'alamat_kec' => $input['alamat_kec'],
+            'alamat_desa' => $input['alamat_desa'],
             'nama_direktur_laznas' => $input['nama_direktur_laznas'],
             'tingkatan_laznas' => $input['tingkatan_laznas'],
             'no_telpon_laznas' => $input['no_telpon_laznas'],
+            'no_rekomendasi_pembuatan' => $input['no_rekomendasi_pembuatan'],
+            'tgl_rekomendasi_pembuatan' => $input['tgl_rekomendasi_pembuatan'],
+            'no_rekomendasi_perpanjangan' => $input['no_rekomendasi_perpanjangan'],
         ]);
     }
 }

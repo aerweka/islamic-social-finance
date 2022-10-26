@@ -42,7 +42,6 @@
         $(document).ready(function() {
             // Country dependent ajax
             $("#alamat_prov").on("change", function() {
-                var provinceCode = $(this).val();
                 $.ajax({
                     url: "{{ route('get_kabkot') }}?provinceCode=" + $(this).val(),
                     type: "GET",
@@ -53,14 +52,9 @@
             });
 
             $("#alamat_kabkot").on("change", function() {
-                var cityCode = $(this).val();
                 $.ajax({
-                    url: `{{ route('get_kec') }}?cityCode=` + cityCode,
+                    url: `{{ route('get_kec') }}?cityCode=` + $(this).val(),
                     type: "GET",
-                    cache: false,
-                    data: {
-                        cityCode: cityCode
-                    },
                     success: function(data) {
                         $("#alamat_kec").html(data);
                     }
@@ -68,14 +62,9 @@
             });
 
             $("#alamat_kec").on("change", function() {
-                var districtCode = $(this).val();
                 $.ajax({
-                    url: `{{ route('get_desa') }}?districtCode=` + districtCode,
+                    url: `{{ route('get_desa') }}?districtCode=` + $(this).val(),
                     type: "GET",
-                    cache: false,
-                    data: {
-                        districtCode: districtCode
-                    },
                     success: function(data) {
                         $("#alamat_desa").html(data);
                     }
