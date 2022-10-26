@@ -22,7 +22,6 @@
 </style>
 <body>
     <center><p style="font-size: 12pt; font-weight: bold; font-family: Tahoma">Kinerja Lembaga {{$jawaban[0]->nama_laznas}} Berdasarkan Dimensi Environment, Social, Governance (ESG) Tahun Anggaran {{Carbon::parse($jawaban[0]->filled_at)->year}}</p></center>
-    
 
     <table class="table table-borderless" style="margin-top: 20px; font-size: 11pt">
         <tbody>
@@ -117,7 +116,7 @@
                 <td style="text-align: center">{{$tes[$p->dimensi][$p->kode][$p->kode_indikator]}}</td>
                 <td>{{round($p->bobot_pertanyaan*100)}}%</td>
                 <td style="text-align: center">{{round($sum_indikator[$p->dimensi][$p->kode][$p->kode_indikator]*100)}}%</td>
-                
+
             </tr>
             @endforeach
         </tbody>
