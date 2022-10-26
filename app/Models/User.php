@@ -22,10 +22,17 @@ class User extends Authenticatable
         'email',
         'password',
         'nama_laznas',
-        'alamat_laznas',
+        'alamat_jalan',
+        'alamat_prov',
+        'alamat_kabkot',
+        'alamat_kec',
+        'alamat_desa',
         'nama_direktur_laznas',
         'tingkatan_laznas',
-        'no_telpon_laznas'
+        'no_telpon_laznas',
+        'no_rekomendasi_pembuatan',
+        'tgl_rekomendasi_pembuatan',
+        'no_rekomendasi_perpanjangan',
     ];
 
     /**

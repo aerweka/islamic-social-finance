@@ -46,6 +46,7 @@
 					<thead>
 						<tr>
 							<th>No</th>
+							<th>No Rekomendasi Pembuatan</th>
 							<th>Nama</th>
 							<th>Nama Laznas</th>
 							<th>No Telp</th>
@@ -62,15 +63,16 @@
 						@foreach ($getchart_answer as $answer)
 						<tr>
 							<td>{{$loop-> iteration}}</td>
+							<td>{{$answer-> users-> no_rekomendasi_pembuatan}}</td>
 							<td>{{$answer-> users-> name}}</td>
 							<td>{{$answer-> users-> nama_laznas}}</td>
 							<td>{{$answer-> users-> no_telpon_laznas}}</td>
 							<td>{{$answer-> users-> tingkatan_laznas}}</td>
 							<td>{{$answer-> filled_at}}</td>
-							<td>{{$answer-> total_env}}</td>
-							<td>{{$answer-> total_soc}}</td>
-							<td>{{$answer-> total_gov}}</td>
-							<td>{{$answer-> total_all}}</td>
+							<td>{{$answer-> total_env}}%</td>
+							<td>{{$answer-> total_soc}}%</td>
+							<td>{{$answer-> total_gov}}%</td>
+							<td>{{$answer-> total_all}}%</td>
 							<td>
 								<a type="button" href="admin/preview/{{$answer->id_jawaban}}" class="btn btn-secondary" style="margin-bottom:5px">Preview
 									<i class="fas fa-eye mr-1"></i>
@@ -263,11 +265,17 @@ if (echartElemBar) {
         buttons: [
 			{
                 extend: 'excel',
-                title: 'Data Jawaban export'
+                title: 'Data Jawaban export',
+				exportOptions: {
+					columns: 'th:not(:last-child)'
+				}
             },
             {
                 extend: 'pdf',
-                title: 'Data Jawaban export'
+                title: 'Data Jawaban export',
+				exportOptions: {
+					columns: 'th:not(:last-child)'
+				}
             }
         ],
 		

@@ -14,6 +14,7 @@ use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Contracts\LoginResponse;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Contracts\RegisterResponse;
+use Laravolt\Indonesia\Models\Province;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -82,7 +83,8 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::registerView(function () {
-            return view('auth.register');
+            $provinces = Province::all(['code', 'name']);
+            return view('auth.register', compact('provinces'));
         });
 
         Fortify::requestPasswordResetLinkView(function () {

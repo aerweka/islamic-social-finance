@@ -120,7 +120,12 @@ class ModulSurveyController extends Controller
         ->get();
 
         $jawaban = DB::table('answer')
+        ->select('users.*', 'answer.*', 'prov.name as prov_name', 'city.name as city_name', 'dis.name as dis_name', 'vil.name as vil_name')
         ->join('users', 'answer.id', '=', 'users.id')
+        ->join('id_provinces as prov', 'prov.code','alamat_prov')
+        ->join('id_cities as city', 'city.code','alamat_kabkot')
+        ->join('id_districts as dis', 'dis.code','alamat_kec')
+        ->join('id_villages as vil', 'vil.code','alamat_desa')
         ->where('answer.id', Auth::user()->id)
         ->whereYear('answer.filled_at', $request->tahun)
         ->get();
@@ -171,7 +176,12 @@ class ModulSurveyController extends Controller
         ->get();
 
         $jawaban = DB::table('answer')
+        ->select('users.*', 'answer.*', 'prov.name as prov_name', 'city.name as city_name', 'dis.name as dis_name', 'vil.name as vil_name')
         ->join('users', 'answer.id', '=', 'users.id')
+        ->join('id_provinces as prov', 'prov.code','alamat_prov')
+        ->join('id_cities as city', 'city.code','alamat_kabkot')
+        ->join('id_districts as dis', 'dis.code','alamat_kec')
+        ->join('id_villages as vil', 'vil.code','alamat_desa')
         ->where('answer.id', Auth::user()->id)
         ->whereYear('answer.filled_at', $request->tahun)
         ->get();

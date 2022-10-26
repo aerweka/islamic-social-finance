@@ -117,8 +117,8 @@
                                             @if ($p->id_aspek == $a->id_aspek)
                                                 <div class="soal">
                                                     <div class="card card-soal">
-                                                        <h5 style="margin-top:20px">{{ $p->kode_indikator }}</h5>
-                                                        <h5>Soal{{ $p->soal }}</h5>
+                                                        <h5 style="margin-top:20px">Soal {{ $p->kode_indikator }}</h5>
+                                                        <h5>{{ $p->soal }}</h5>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio"
                                                                 name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
@@ -219,6 +219,7 @@
         </div>
     </section>
 
+    <script src="{{ asset('assets/js/vendor/sweetalert2.min.js') }}"></script>
     <script>
         $(function() {
             var $sections = $('.form-section');
@@ -227,19 +228,24 @@
             function navigateTo(index) {
                 $sections.removeClass('current').eq(index).addClass('current');
 
-                if (index < 2) $('#dimension-paging').hide();
+                // if (index < 2) $('#dimension-paging').hide();
 
-                if (index > 2) {
+                // if (index > 2) {
+                //     $('#dimension-paging').show();
+                //     $('#gov').hide();
+                // }
+
+
+                console.log($('.contact-form').parsley().isValid());
+                if ($('.contact-form').parsley().isValid()) {
                     $('#dimension-paging').show();
-                    $('#gov').hide();
-                }
-
-                if (index > 5) $('#gov').show();
+                } else $('#dimension-paging').hide();
 
                 $('.form-navigation .previous').toggle(index > 0);
                 var atTheEnd = index >= $sections.length - 1;
                 $('.form-navigation .next').toggle(!atTheEnd);
                 $('.form-navigation .submit').toggle(atTheEnd);
+                if (index == 11) $('#dimension-paging').show();
             }
 
             function curIndex() {
@@ -266,6 +272,46 @@
                 navigateTo(3);
             });
 
+            $('.form-navigation .submit').click(function() {
+                $('.contact-form').parsley().whenValidate().done(function() {
+                    $('#confirmSubmit').on('click', function() {
+                        swal({
+                            title: 'Yakin jawaban ingin dikirim?',
+                            text: "Setelah jawaban dikirim tidak akan bisa mengisi survey tahun ini lagi!",
+                            type: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#0CC27E',
+                            cancelButtonColor: '#FF586B',
+                            confirmButtonText: 'Ya, kirim!',
+                            cancelButtonText: 'Tidak',
+                            confirmButtonClass: 'btn btn-success mr-5',
+                            cancelButtonClass: 'btn btn-danger',
+                            buttonsStyling: false
+                        }).then(function() {
+                            document.getElementById("soal").submit();
+                            swal(
+                                'Send!',
+                                'Jawaban Anda berhasil dikirim.',
+                                'success',
+                            )
+                        }, function(dismiss) {
+                            // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+                            if (dismiss === 'cancel') {
+                                swal(
+                                    'Cancelled',
+                                    'Silahkan cek ulang jawaban Anda',
+                                    'error'
+                                )
+                            }
+                        })
+                    });
+                });
+            });
+
+            $sections.each(function(index, section) {
+                $(section).find(':input').attr('data-parsley-group', 'block-' + index);
+            });
+
             $('#gov').click(function() {
                 navigateTo(6);
             });
@@ -282,43 +328,8 @@
             document.documentElement.scrollTop = 0;
         }
     </script>
-
-    <script src="{{ asset('assets/js/vendor/sweetalert2.min.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $('#confirmSubmit').on('click', function() {
-                swal({
-                    title: 'Yakin jawaban ingin dikirim?',
-                    text: "Setelah jawaban dikirim tidak akan bisa mengisi survey tahun ini lagi!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#0CC27E',
-                    cancelButtonColor: '#FF586B',
-                    confirmButtonText: 'Ya, kirim!',
-                    cancelButtonText: 'Tidak',
-                    confirmButtonClass: 'btn btn-success mr-5',
-                    cancelButtonClass: 'btn btn-danger',
-                    buttonsStyling: false
-                }).then(function() {
-                    document.getElementById("soal").submit();
-                    swal(
-                        'Send!',
-                        'Jawaban Anda berhasil dikirim.',
-                        'success',
-                    )
-                }, function(dismiss) {
-                    // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
-                    if (dismiss === 'cancel') {
-                        swal(
-                            'Cancelled',
-                            'Silahkan cek ulang jawaban Anda',
-                            'error'
-                        )
-                    }
-                })
-            });
-        })
-    </script>
+    {{-- })
+    </script> --}}
 </body>
 
 </html>
