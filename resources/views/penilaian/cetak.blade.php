@@ -48,39 +48,38 @@
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px">No. Rekomendasi Pembuatan</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
+                <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->no_rekomendasi_pembuatan}}</td>
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px">Tgl Rekomendasi Pembuatan</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
+                <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->tgl_rekomendasi_pembuatan}}</td>
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px">No. Rekomendasi Perpanjangan</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
+                <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->no_rekomendasi_perpanjangan}}</td>
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px">Alamat</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px; padding-left: 35px">- Jalan</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
+                <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->alamat_jalan}}</td>
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px; padding-left: 35px">- Desa/Kelurahan</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
+                <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->vil_name}}</td>
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px; padding-left: 35px">- Kecamatan</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
+                <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->dis_name}}</td>
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px">Kabupaten/Kota</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
+                <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->city_name}}</td>
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px">Provinsi</td>
-                <td style="width: 35%; line-height: 0px">: XX</td>
+                <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->prov_name}}</td>
             </tr>
         </tbody>
     </table>
