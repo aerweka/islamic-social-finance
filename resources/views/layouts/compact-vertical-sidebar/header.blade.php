@@ -22,12 +22,12 @@
 		<!-- User avatar dropdown -->
 		<div class="dropdown">
 			<div class="user col align-self-end">
-				<img src="{{ asset('assets/images/faces/1.jpg') }}" id="userDropdown" alt="" data-toggle="dropdown"
+				<img src="{{ asset('assets\images\products\weather-2.jpg') }}" id="userDropdown" alt="" data-toggle="dropdown"
 					aria-haspopup="true" aria-expanded="false">
 
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 					<div class="dropdown-header">
-						<i class="i-Lock-User mr-1"></i> Timothy Carlson
+						<i class="i-Lock-User mr-1"></i> user
 					</div>
 					<form action="{{ route('logout') }}" method="post">
 						@csrf

@@ -85,47 +85,7 @@
         </tbody>
     </table>
     <br>
-    @foreach($dim as $d)
-    <table class="table table-bordered col-md-8 offset-md-2" style="line-height: 14px; font-size:11pt">
-        <thead class="thead-dark">
-            @if($d->dimensi == 'Environment')
-            <tr style="text-align: center;">
-                <th colspan="5" style="background-color: #9BBB59">Dimensi {{$d->dimensi}} bobot:{{round($d->bobot_dimensi*100)}}%</th>
-            </tr>
-            @elseif($d->dimensi == 'Social')
-            <tr style="text-align: center;">
-                <th colspan="5" style="background-color: #C4BD97">Dimensi {{$d->dimensi}} bobot:{{round($d->bobot_dimensi*100)}}%</th>
-            </tr>
-            @elseif($d->dimensi == 'Governance')
-            <tr style="text-align: center;">
-                <th colspan="5" style="background-color: #FABF8F">Dimensi {{$d->dimensi}} bobot:{{round($d->bobot_dimensi*100)}}%</th>
-            </tr>
-            @endif
-            <tr style="text-align: center">
-                <th>Aspek</th>
-                <th>Indikator</th>
-                <th width="77px">Nilai Kredit</th>
-                <th>Bobot</th>
-                <th>Skor</th>
-            </tr>
-        </thead>
-        @foreach($pertanyaan->where('dimensi', $d->dimensi) as $p)
-        <tbody>
-            <tr>
-                
-                <td>{{$p->aspek}}</td>
-                <td>{{$p->soal}}</td>
-                <td style="text-align: center">{{$tes[$p->dimensi][$p->kode][$p->kode_indikator]}}</td>
-                <td>{{round($p->bobot_pertanyaan*100)}}%</td>
-                <td style="text-align: center">{{round($sum_indikator[$p->dimensi][$p->kode][$p->kode_indikator]*100)}}%</td>
-                
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <br>
-    @endforeach
-    <br><br>
+    
     <table class="table table-bordered col-md-8 offset-md-2" style="line-height: 10px; font-size: 11pt">
         <thead class="thead-dark">
             <tr>
@@ -153,7 +113,7 @@
             @endforeach
         </tbody>
     </table>
-    <br><br>
+    <br><br><br>
     <table class="table table-bordered col-md-8 offset-md-2" style="line-height: 10px; font-size: 11pt;">
         <thead class="thead-dark">
             <tr>
