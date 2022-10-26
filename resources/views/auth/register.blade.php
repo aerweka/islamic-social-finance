@@ -40,17 +40,53 @@
 	@error('nama_laznas')
 	<p class="text-red">{{ $message }}</p>
 	@enderror
+	<h5 class="text-muted">Alamat Laznas</h5>
 	<div class="input-group mb-3">
-		<input name="alamat_laznas" type="text" class="form-control" placeholder="Alamat instansi laznas">
+		<input name="alamat_jalan" type="text" class="form-control" placeholder="Alamat instansi laznas">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-road"></span>
 			</div>
 		</div>
 	</div>
-	@error('alamat_laznas')
+	@error('alamat_jalan')
 	<p class="text-red">{{ $message }}</p>
 	@enderror
+	<div class="input-group mb-3">
+		<select class="form-control" name="alamat_prov" id="alamat_prov">
+			@foreach ($provinces as $prov)
+				<option value="{{$prov->code}}">{{$prov->name}}</option>
+			@endforeach
+		</select>
+	</div>
+	@error('alamat_prov')
+	<p class="text-red">{{ $message }}</p>
+	@enderror
+	<div class="input-group mb-3">
+		<select class="form-control" name="alamat_kabkot" id="alamat_kabkot">
+			<option value="">Pilih Kabupaten/Kota</option>
+		</select>
+	</div>
+	@error('alamat_kabkot')
+	<p class="text-red">{{ $message }}</p>
+	@enderror
+	<div class="input-group mb-3">
+		<select class="form-control" name="alamat_kec" id="alamat_kec">
+			<option value="">Pilih Kecamatan</option>
+		</select>
+	</div>
+	@error('alamat_kec')
+	<p class="text-red">{{ $message }}</p>
+	@enderror
+	<div class="input-group mb-3">
+		<select class="form-control" name="alamat_desa" id="alamat_desa">
+			<option value="">Pilih Desa</option>
+		</select>
+	</div>
+	@error('alamat_desa')
+	<p class="text-red">{{ $message }}</p>
+	@enderror
+	<h5 class="text-muted">Informasi Laznas</h5>
 	<div class="input-group mb-3">
 		<input name="nama_direktur_laznas" type="text" class="form-control" placeholder="Nama direktur instansi laznas">
 		<div class="input-group-append">
@@ -75,7 +111,7 @@
 	<p class="text-red">{{ $message }}</p>
 	@enderror
 	<div class="input-group mb-3">
-		<input name="no_telpon_laznas" type="text" class="form-control" placeholder="+62">
+		<input name="no_telpon_laznas" type="text" class="form-control" placeholder="Telpon laznas">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-phone"></span>
@@ -83,6 +119,39 @@
 		</div>
 	</div>
 	@error('no_telpon_laznas')
+	<p class="text-red">{{ $message }}</p>
+	@enderror
+	<div class="input-group mb-3">
+		<input name="no_rekomendasi_pembuatan" type="text" class="form-control" placeholder="Nomor Rekomendasi Pembuatan">
+		<div class="input-group-append">
+			<div class="input-group-text">
+				<span class="fas fa-lock"></span>
+			</div>
+		</div>
+	</div>
+	@error('no_rekomendasi_pembuatan')
+	<p class="text-red">{{ $message }}</p>
+	@enderror
+	<div class="input-group mb-3">
+		<input name="tgl_rekomendasi_pembuatan" type="date" class="form-control">
+		<div class="input-group-append">
+			<div class="input-group-text">
+				<span class="fas fa-calendar-alt"></span>
+			</div>
+		</div>
+	</div>
+	@error('tgl_rekomendasi_pembuatan')
+	<p class="text-red">{{ $message }}</p>
+	@enderror
+	<div class="input-group mb-3">
+		<input name="no_rekomendasi_perpanjangan" type="text" class="form-control" placeholder="No Rekomendasi Perpanjangan">
+		<div class="input-group-append">
+			<div class="input-group-text">
+				<span class="fas fa-lock"></span>
+			</div>
+		</div>
+	</div>
+	@error('no_rekomendasi_perpanjangan')
 	<p class="text-red">{{ $message }}</p>
 	@enderror
 	<div class="input-group mb-3">

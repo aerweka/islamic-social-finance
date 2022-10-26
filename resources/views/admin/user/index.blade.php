@@ -33,6 +33,10 @@
                                     <th>Direktur Laznas</th>
                                     <th>Tingkatan Laznas</th>
                                     <th>Telpon Laznas</th>
+                                    <th>Alamat Laznas</th>
+                                    <th>No Rekomendasi Pembuatan</th>
+                                    <th>Tanggal Rekomendasi Pembuatan</th>
+                                    <th>No Rekomendasi Perpanjangan</th>
                                     <th>Detail</th>
                                 </tr>
                             </thead>
@@ -44,8 +48,14 @@
                                         <td>{{ $data->email }}</td>
                                         <td>{{ $data->nama_laznas }}</td>
                                         <td>{{ $data->nama_direktur_laznas }}</td>
-                                        <td>{{ $data->no_telpon_laznas }}</td>
                                         <td>{{ $data->tingkatan_laznas }}</td>
+                                        <td>{{ $data->no_telpon_laznas }}</td>
+                                        <td>{{ $data->alamat_jalan }}, {{ $data->vil_name }}, {{ $data->dis_name }},
+                                            {{ $data->ct_name }}, {{ $data->prov_name }}
+                                        </td>
+                                        <td>{{ $data->no_rekomendasi_pembuatan }}</td>
+                                        <td>{{ $data->tgl_rekomendasi_pembuatan }}</td>
+                                        <td>{{ $data->no_rekomendasi_perpanjangan }}</td>
                                         <td>
                                             <a href="{{ route('admin.user.edit', ['user' => $data->id]) }}"
                                                 class="btn btn-sm btn-info"><i class="i-Information"></i></a>
@@ -72,11 +82,17 @@
                 dom: 'Bfrtip',
                 buttons: [{
                         extend: 'excel',
-                        title: 'Data User export'
+                        title: 'Data User export',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
                     },
                     {
                         extend: 'pdf',
-                        title: 'Data User export'
+                        title: 'Data User export',
+                        exportOptions: {
+                            columns: 'th:not(:last-child)'
+                        }
                     }
                 ],
 

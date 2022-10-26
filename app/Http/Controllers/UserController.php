@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use Laravolt\Indonesia\Models\City;
+use Laravolt\Indonesia\Models\District;
+use Laravolt\Indonesia\Models\Village;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -31,5 +34,34 @@ class UserController extends Controller
         }
         Alert::toast("Kamu gagal memperbarui data", 'error');
         return redirect()->back(400);
+    }
+
+    public function getKabKot(Request $req)
+    {
+        $html = '';
+        $kabKot = City::where('province_code', $req->provinceCode)->get();
+        foreach ($kabKot as $kk) {
+            $html .= "<option value='{$kk->code}'>{$kk->name}</option>";
+        }
+        return response()->json($html);
+    }
+
+    public function getKec(Request $req)
+    {
+        $html = '';
+        $kec = District::where('city_code', $req->cityCode)->get();
+        foreach ($kec as $kk) {
+            $html .= "<option value='{$kk->code}'>{$kk->name}</option>";
+        }
+        return response()->json($html);
+    }
+    public function getDesa(Request $req)
+    {
+        $html = '';
+        $desa = Village::where('district_code', $req->districtCode)->get();
+        foreach ($desa as $kk) {
+            $html .= "<option value='{$kk->code}'>{$kk->name}</option>";
+        }
+        return response()->json($html);
     }
 }
