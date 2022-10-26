@@ -31,10 +31,16 @@ class CreateNewUser implements CreatesNewUsers
             ],
             'password' => $this->passwordRules(),
             'nama_laznas' => ['required', 'string', 'max:255'],
-            'alamat_laznas' => ['required', 'string', 'max:255'],
+            'alamat_jalan' => ['required', 'string', 'max:255'],
+            'alamat_desa' => ['required', 'string', 'max:255'],
+            'alamat_kabkot' => ['required', 'string', 'max:255'],
+            'alamat_prov' => ['required', 'string', 'max:255'],
             'nama_direktur_laznas' => ['required', 'string', 'max:255'],
             'tingkatan_laznas' => ['required', 'string', 'max:255'],
             'no_telpon_laznas' => ['required', 'string', 'max:255'],
+            'no_rekomendasi_pembuatan' => ['required', 'string', 'max:255'],
+            'tgl_rekomendasi_pembuatan' => ['required', 'string', 'max:255'],
+            'no_rekomendasi_perpanjangan' => ['required', 'string', 'max:255'],
             'email_verified_at' => now()
         ])->validate();
 

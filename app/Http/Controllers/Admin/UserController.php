@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
+use Laravolt\Indonesia\Models\Province;
+use Laravolt\Indonesia\Models\City;
+use Laravolt\Indonesia\Models\District;
+use Laravolt\Indonesia\Models\Village;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -72,7 +76,11 @@ class UserController extends Controller
     public function edit($user)
     {
         $data = User::findOrFail($user);
-        return view('admin.user.edit', compact('data'));
+        $provinces = Province::all();
+        $cities = City::all(['code', 'province_code', 'name']);
+        $districts = District::all(['code', 'city_code', 'name']);
+        $villages = Village::all(['code', 'district_code', 'name']);
+        return view('admin.user.edit', compact('data', 'provinces', 'cities', 'districts', 'villages'));
     }
 
     /**
