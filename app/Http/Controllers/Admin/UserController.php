@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\User;
+use Laravolt\Indonesia\Models\Province;
+use Laravolt\Indonesia\Models\City;
+use Laravolt\Indonesia\Models\District;
+use Laravolt\Indonesia\Models\Village;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -21,7 +25,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::all();
+        // $data = User::all();
+        $data = User::select('users.*', 'prov.name as prov_name', 'ct.name as ct_name', 'dis.name as dis_name', 'vil.name as vil_name')
+            ->join('id_provinces AS prov', 'prov.code', 'alamat_prov')
+            ->join('id_cities AS ct', 'ct.code', 'alamat_kabkot')
+            ->join('id_districts AS dis', 'dis.code', 'alamat_kec')->join('id_villages AS vil', 'vil.code', 'alamat_desa')
+            ->get();
         return view('admin.user.index', compact('data'));
     }
 
@@ -71,8 +80,23 @@ class UserController extends Controller
      */
     public function edit($user)
     {
-        $data = User::findOrFail($user);
-        return view('admin.user.edit', compact('data'));
+        $data = User::
+            // select('users.*', '.ct.name as ct_name', 'dis.name as dis_name', 'vil.name as vil_name')
+            //     ->join('id_cities AS ct', 'ct.code', 'alamat_kabkot')
+            //     ->join('id_districts AS dis', 'dis.code', 'alamat_kec')->join('id_villages AS vil', 'vil.code', 'alamat_desa')
+            where('users.id', $user)
+            ->get();
+        $provinces = Province::all(['code', 'name']);
+        $cities = City::where('province_code', $data[0]->alamat_prov)->get();
+        $districts = District::where('city_code', $data[0]->alamat_kabkot)->get();
+        $villages = Village::where('district_code', $data[0]->alamat_kec)->get();
+        return view('admin.user.edit', compact(
+            'data',
+            'provinces',
+            'cities',
+            'districts',
+            'villages',
+        ));
     }
 
     /**
@@ -84,14 +108,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $user, UpdateUserProfileInformation $updateUser)
     {
-        $updateUser = $updateUser->update(User::findOrFail($user), $request->all());
-
-        if ($updateUser) {
+        try {
+            $updateUser->update(User::findOrFail($user), $request->all());
             Alert::toast("Kamu telah berhasil memperbarui data", 'success');
-            return redirect()->back(200);
+            return back();
+        } catch (\Throwable $th) {
+            Alert::toast("Kamu gagal memperbarui data", 'error');
+            return back();
         }
-        Alert::toast("Kamu gagal memperbarui data", 'error');
-        return redirect()->back(400);
     }
 
     /**

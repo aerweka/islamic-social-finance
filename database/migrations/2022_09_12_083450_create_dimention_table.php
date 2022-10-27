@@ -16,7 +16,7 @@ class CreateDimentionTable extends Migration
         Schema::create('dimention', function (Blueprint $table) {
             $table->increments('id_dimensi');
             $table->string('dimensi');
-            $table->Double('bobot_dimensi');
+            $table->double('bobot_dimensi');
             $table->string('color');
         });
     }

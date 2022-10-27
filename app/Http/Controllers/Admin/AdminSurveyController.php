@@ -45,7 +45,12 @@ class AdminSurveyController extends Controller
         ->get();
 
         $jawaban = DB::table('answer')
+        ->select('users.*', 'answer.*', 'prov.name as prov_name', 'city.name as city_name', 'dis.name as dis_name', 'vil.name as vil_name')
         ->join('users', 'answer.id', '=', 'users.id')
+        ->join('id_provinces as prov', 'prov.code','alamat_prov')
+        ->join('id_cities as city', 'city.code','alamat_kabkot')
+        ->join('id_districts as dis', 'dis.code','alamat_kec')
+        ->join('id_villages as vil', 'vil.code','alamat_desa')
         ->where('answer.id_jawaban', $request->id)
         ->get();
 
@@ -69,16 +74,16 @@ class AdminSurveyController extends Controller
             // dd($data[$i->dimensi][$x->kode][$x->kode_indikator]);
             $decode = json_decode($tes[$x->dimensi][$x->kode][$x->kode_indikator],true);
             // $simpan_for_answer[$x->dimensi][$x->kode][$x->kode_indikator] = $decode['nilai'];
-            $sum_indikator[$x->dimensi][$x->kode][$x->kode_indikator] = $tes[$x->dimensi][$x->kode][$x->kode_indikator]*$x->bobot_pertanyaan;
+            $sum_indikator[$x->dimensi][$x->kode][$x->kode_indikator] = $tes[$x->dimensi][$x->kode][$x->kode_indikator]/5*$x->bobot_pertanyaan;
             // dd($sum_indikator);
-            $sum_aspek[$x->dimensi][$x->kode] = array_sum($sum_indikator[$x->dimensi][$x->kode]) *$x->bobot_aspek;
-            $sum_dimensi[$x->dimensi] = array_sum($sum_aspek[$x->dimensi]) *$x->bobot_dimensi;
-            $sum_total =  array_sum($sum_dimensi)/5;
+            $sum_aspek[$x->dimensi][$x->kode] = array_sum($sum_indikator[$x->dimensi][$x->kode]);
+            $sum_dimensi[$x->dimensi] = array_sum($sum_aspek[$x->dimensi]) *$x->bobot_dimensi*100;
+            $sum_total =  array_sum($sum_dimensi);
         }
         // dd($count_dim);
 
 
-        $pdf = PDF::loadview('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim'));
+        $pdf = PDF::loadview('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim', 'sum_indikator', 'tes'));
         return $pdf->stream('Hasil-Survey-' .$jawaban[0]->name .'-' .Carbon::parse($jawaban[0]->filled_at)->year .'.pdf');
     }
 }

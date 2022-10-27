@@ -22,6 +22,7 @@
 </style>
 <body>
     <center><p style="font-size: 12pt; font-weight: bold; font-family: Tahoma">Kinerja Lembaga {{$jawaban[0]->nama_laznas}} Berdasarkan Dimensi Environment, Social, Governance (ESG) Tahun Anggaran {{Carbon::parse($jawaban[0]->filled_at)->year}}</p></center>
+    
 
     <table class="table table-borderless" style="margin-top: 20px; font-size: 11pt">
         <tbody>
@@ -59,6 +60,7 @@
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px">Alamat</td>
+                {{-- <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->alamat_jalan}}</td> --}}
             </tr>
             <tr>
                 <td style="width: 20%; line-height: 0px; padding-left: 35px">- Jalan</td>
@@ -83,47 +85,7 @@
         </tbody>
     </table>
     <br>
-    @foreach($dim as $d)
-    <table class="table table-bordered col-md-8 offset-md-2" style="line-height: 14px; font-size:11pt">
-        <thead class="thead-dark">
-            @if($d->dimensi == 'Environment')
-            <tr style="text-align: center;">
-                <th colspan="5" style="background-color: #9BBB59">Dimensi {{$d->dimensi}} bobot:{{round($d->bobot_dimensi*100)}}%</th>
-            </tr>
-            @elseif($d->dimensi == 'Social')
-            <tr style="text-align: center;">
-                <th colspan="5" style="background-color: #C4BD97">Dimensi {{$d->dimensi}} bobot:{{round($d->bobot_dimensi*100)}}%</th>
-            </tr>
-            @elseif($d->dimensi == 'Governance')
-            <tr style="text-align: center;">
-                <th colspan="5" style="background-color: #FABF8F">Dimensi {{$d->dimensi}} bobot:{{round($d->bobot_dimensi*100)}}%</th>
-            </tr>
-            @endif
-            <tr style="text-align: center">
-                <th>Aspek</th>
-                <th>Indikator</th>
-                <th width="77px">Nilai Kredit</th>
-                <th>Bobot</th>
-                <th>Skor</th>
-            </tr>
-        </thead>
-        @foreach($pertanyaan->where('dimensi', $d->dimensi) as $p)
-        <tbody>
-            <tr>
-                
-                <td>{{$p->aspek}}</td>
-                <td>{{$p->soal}}</td>
-                <td style="text-align: center">{{$tes[$p->dimensi][$p->kode][$p->kode_indikator]}}</td>
-                <td>{{round($p->bobot_pertanyaan*100)}}%</td>
-                <td style="text-align: center">{{round($sum_indikator[$p->dimensi][$p->kode][$p->kode_indikator]*100)}}%</td>
-
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <br>
-    @endforeach
-    <br><br>
+    
     <table class="table table-bordered col-md-8 offset-md-2" style="line-height: 10px; font-size: 11pt">
         <thead class="thead-dark">
             <tr>
@@ -151,7 +113,7 @@
             @endforeach
         </tbody>
     </table>
-    <br><br>
+    <br><br><br>
     <table class="table table-bordered col-md-8 offset-md-2" style="line-height: 10px; font-size: 11pt;">
         <thead class="thead-dark">
             <tr>
