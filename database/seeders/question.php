@@ -24,7 +24,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki aturan terkait konsumsi energi listrik, telah disosialisasikan, dan terdapat hukuman yang jelas',
             'pilihan_4' => 'Lembaga memiliki aturan terkait konsumsi energi listrik, telah disosialisasikan, serta terdapat hukuman dan insentif yang jelas',
             'pilihan_5' => 'Penghematan dan efisiensi energi listrik telah menjadi budaya lembaga (Contoh Budaya: Seluruh Amil telah melaksanakan tindakan penghematan dan efisiensi energi listrik tanpa paksaan dan dilakukan secara terus-menerus)',
-            'bobot_pertanyaan' => '0.33'
+            'bobot_pertanyaan' => '0.146473628633357'
         ]);
         M_question::create([
             'id_aspek' => '1',
@@ -35,7 +35,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki aturan terkait konsumsi air bersih, telah disosialisasikan, dan terdapat hukuman yang jelas',
             'pilihan_4' => 'Lembaga memiliki aturan terkait konsumsi air bersih, telah disosialisasikan, serta terdapat hukuman dan insentif yang jelas',
             'pilihan_5' => 'Penghematan dan efisiensi air bersih telah menjadi budaya lembaga (Contoh Budaya: Seluruh Amil telah melaksanakan tindakan penghematan dan efisiensi air bersih tanpa paksaan dan dilakukan secara terus-menerus)',
-            'bobot_pertanyaan' => '0.33'
+            'bobot_pertanyaan' => '0.121008169843828'
         ]);
         M_question::create([
             'id_aspek' => '1',
@@ -46,7 +46,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga sudah mencari tahu informasi seputar sumber energi terbarukan dan sadar pentingnya menggunakan sumber energi terbarukan',
             'pilihan_4' => 'Lembaga sepakat memasukan rencana penggunaan sumber energi terbarukan dalam Rencana Kerja Lembaga dalam jangka waktu 3 tahun ke depan',
             'pilihan_5' => 'Saat ini Lembaga telah siap menggunakan sumber energi terbarukan',
-            'bobot_pertanyaan' => '0.33'
+            'bobot_pertanyaan' => '0.0644194964708498'
         ]);
 
         //aspek2
@@ -59,7 +59,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki kendaraan bermotor berbahan bakar bensin dengan kuantitas yang sesuai dengan kebutuhan lembaga',
             'pilihan_4' => 'Lembaga memiliki kendaraan bermotor berbahan bakar bensin yang kuantitas dan kualitasnya sesuai dengan kebutuhan lembaga dan digunakan seefisien mungkin',
             'pilihan_5' => 'Lembaga memiliki kendaran bermotor listrik atau biofuel yang kualitas dan kuantitasnya sesuai dengan kebutuhan lembaga dan digunakan seefisien mungkin',
-            'bobot_pertanyaan' => '0.5'
+            'bobot_pertanyaan' => '0.120369032401489'
         ]);
         M_question::create([
             'id_aspek' => '2',
@@ -70,7 +70,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki aturan terkait konsumsi BBM, sudah disosialisasikan, dan terdapat hukuman yang jelas',
             'pilihan_4' => 'Lembaga memiliki aturan terkait konsumsi BBM, sudah disosialisasikan, serta terdapat hukuman dan insentif yang jelas',
             'pilihan_5' => 'Penghematan dan efisiensi BBM sudah menjadi budaya lembaga (Contoh Budaya: Seluruh Amil melakukan penghematan dan efisiensi BBM tanpa paksaan dan dilakukan secara terus-menerus)',
-            'bobot_pertanyaan' => '0.5'
+            'bobot_pertanyaan' => '0.213038403823709'
         ]); 
 
         //aspek3
@@ -83,7 +83,7 @@ class question extends Seeder
             'pilihan_3' => 'Sebagian ruangan difasilitasi dengan tempat sampah',
             'pilihan_4' => 'Hampir seluruh ruangan difasilitasi dengan tempat sampah',
             'pilihan_5' => 'Seluruh ruang difasilitasi dengan tempat sampah',
-            'bobot_pertanyaan' => '0.2'
+            'bobot_pertanyaan' => '0.0803590285110876'
         ]);
         M_question::create([
             'id_aspek' => '3',
@@ -94,7 +94,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki aturan terkait pemilahan sampah organik - anorganik, sudah disosialisasikan, namun belum ada tindakan evaluasi (hukuman dan insentif)',
             'pilihan_4' => 'Lembaga memiliki aturan terkait pemilahan sampah organik - anorganik, sudah disosialisasikan, serta terdapat hukuman dan insentif yang jelas',
             'pilihan_5' => 'Memilah sampah berdasarkan jenisnya sudah menjadi budaya lembaga (Contoh Budaya: Seluruh Amil memilah sampah organik - anorganik tanpa paksaan dan dilakukan secara terus-menerus)',
-            'bobot_pertanyaan' => '0.2'
+            'bobot_pertanyaan' => '0.0699216361918524'
         ]);
         M_question::create([
             'id_aspek' => '3',
@@ -105,7 +105,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki kebijakan 5R, sudah disosialisasikan, dan terdapat hukuman yang jelas',
             'pilihan_4' => 'Lembaga memiliki kebijakan 5R, sudah disosialisasikan, serta terdapat hukuman dan insentif yang jelas',
             'pilihan_5' => 'Perilaku 5R sudah menjadi budaya Lembaga (Contoh Budaya: Seluruh Amil menerapkan 5R tanpa paksaan dan dilakukan secara terus-menerus)',
-            'bobot_pertanyaan' => '0.2'
+            'bobot_pertanyaan' => '0.0699216361918524'
         ]);
         M_question::create([
             'id_aspek' => '3',
@@ -116,7 +116,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki penanggung jawab 5R yang kompeten, namun tidak melakukan tugasnya dengan baik',
             'pilihan_4' => 'Lembaga memiliki penanggung jawab penerapan 5R dan melakukan tugasnya sesuai dengan SOP yang berlaku',
             'pilihan_5' => 'Lembaga memiliki penanggung jawab penerapan 5R dan melakukan tugasnya sesuai dengan SOP yang berlaku dan memiliki kinerja di luar ekspektasi (melebihi target yang telah ditentukan Lembaga)',
-            'bobot_pertanyaan' => '0.2'
+            'bobot_pertanyaan' => '0.059600955927305'
         ]);
         M_question::create([
             'id_aspek' => '3',
@@ -127,7 +127,7 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki kesadaran melakukan sosialisasi pentingnya menjaga kebersihan lingkungan dan pemrosesan sampah kepada muzakki dan mustahik, tercantum dalam Rencana Kerja Lembaga, namun tidak dapat direalisasikan dalam 1 tahun',
             'pilihan_4' => 'Lembaga bekerjasama dengan mitra melakukan 1 program sosialisasi keberlanjutan lingkungan dalam 1 tahun (Contoh: Lembaga bersama dengan Dinas Lingkungan Hidup melakukan sosialisasi "Pemilahan Sampah dan Pentingnya Menjaga Lingkungan")',
             'pilihan_5' => 'Lembaga secara mandiri melakukan sosialisasi keberlanjutan lingkungan kepada para stakeholder (muzakki, mustahik) minimal 1 kali dalam 1 tahun (Contoh: Lembaga melakukan sosialisasi "Pemilahan Sampah" kepada para mustahik)',
-            'bobot_pertanyaan' => '0.2'
+            'bobot_pertanyaan' => '0.0548880120046685'
         ]);
 
         //aspek4

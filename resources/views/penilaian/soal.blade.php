@@ -95,7 +95,7 @@
 
 <body>
     @php
-        // dd($dimensi);
+    // dd($dimensi);
     @endphp
     <section>
         <div class="container d-flex align-items-center min-vh-100">
@@ -107,75 +107,75 @@
                                 action="{{ route('survey.user.submitsoal') }}">
                                 @csrf
                                 @foreach ($aspek as $a)
-                                    <div class="form-section" style="">
-                                        <div class="card-header sticky" style="background-color: #{{ $a->color }}">
-                                            <h4>Dimensi: {{ $a->dimensi }}</h4>
-                                            <h6>Aspek: {{ $a->aspek }}</h6>
-                                            <h6>{{ $a->definisi }}</h6>
-                                        </div>
-                                        @foreach ($pertanyaan as $p)
-                                            @if ($p->id_aspek == $a->id_aspek)
-                                                <div class="soal">
-                                                    <div class="card card-soal">
-                                                        <h5 style="margin-top:20px">{{ $p->kode_indikator }}</h5>
-                                                        <h5>Soal{{ $p->soal }}</h5>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="radio"
-                                                                name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                id="option1[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                value='{"nilai": "1", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
-                                                            <label class="form-check-label"
-                                                                for="option1[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                {{ $p->pilihan_1 }}
-                                                            </label>
-                                                            <div class="pilihan"></div>
-                                                            @if ($p->pilihan_2 != null)
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                    id="option2[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                    value='{"nilai": "2", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
-                                                                <label class="form-check-label"
-                                                                    for="option2[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                    {{ $p->pilihan_2 }}
-                                                                </label>
-                                                            @endif
-                                                            <div class="pilihan"></div>
-                                                            <input class="form-check-input" type="radio"
-                                                                name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                id="option3[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                value='{"nilai": "3", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
-                                                            <label class="form-check-label"
-                                                                for="option3[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                {{ $p->pilihan_3 }}
-                                                            </label>
-                                                            @if ($p->pilihan_4 != null)
-                                                                <div class="pilihan"></div>
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                    id="option4[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                    value='{"nilai": "4", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
-                                                                <label class="form-check-label"
-                                                                    for="option4[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                    {{ $p->pilihan_4 }}
-                                                                </label>
-                                                            @endif
-                                                            <div class="pilihan"></div>
-                                                            <input class="form-check-input" type="radio"
-                                                                name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                id="option5[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
-                                                                value='{"nilai": "5", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'
-                                                                required>
-                                                            <label class="form-check-label"
-                                                                for="option5[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                {{ $p->pilihan_5 }}
-                                                            </label>
-                                                            <div class="pilihan"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                        @endforeach
+                                <div class="form-section" style="">
+                                    <div class="card-header sticky" style="background-color: #{{ $a->color }}">
+                                        <h4>Dimensi: {{ $a->dimensi }}</h4>
+                                        <h6>Aspek: {{ $a->aspek }}</h6>
+                                        <h6>{{ $a->definisi }}</h6>
                                     </div>
+                                    @foreach ($pertanyaan as $p)
+                                    @if ($p->id_aspek == $a->id_aspek)
+                                    <div class="soal">
+                                        <div class="card card-soal">
+                                            <h5 style="margin-top:20px">{{ $p->kode_indikator }}</h5>
+                                            <h5>Soal{{ $p->soal }}</h5>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio"
+                                                    name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    id="option1[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    value='{"nilai": "1", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
+                                                <label class="form-check-label"
+                                                    for="option1[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
+                                                    {{ $p->pilihan_1 }}
+                                                </label>
+                                                <div class="pilihan"></div>
+                                                @if ($p->pilihan_2 != null)
+                                                <input class="form-check-input" type="radio"
+                                                    name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    id="option2[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    value='{"nilai": "2", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
+                                                <label class="form-check-label"
+                                                    for="option2[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
+                                                    {{ $p->pilihan_2 }}
+                                                </label>
+                                                @endif
+                                                <div class="pilihan"></div>
+                                                <input class="form-check-input" type="radio"
+                                                    name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    id="option3[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    value='{"nilai": "3", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
+                                                <label class="form-check-label"
+                                                    for="option3[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
+                                                    {{ $p->pilihan_3 }}
+                                                </label>
+                                                @if ($p->pilihan_4 != null)
+                                                <div class="pilihan"></div>
+                                                <input class="form-check-input" type="radio"
+                                                    name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    id="option4[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    value='{"nilai": "4", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
+                                                <label class="form-check-label"
+                                                    for="option4[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
+                                                    {{ $p->pilihan_4 }}
+                                                </label>
+                                                @endif
+                                                <div class="pilihan"></div>
+                                                <input class="form-check-input" type="radio"
+                                                    name="answer[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    id="option5[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]"
+                                                    value='{"nilai": "5", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'
+                                                    required>
+                                                <label class="form-check-label"
+                                                    for="option5[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
+                                                    {{ $p->pilihan_5 }}
+                                                </label>
+                                                <div class="pilihan"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                </div>
                                 @endforeach
 
                                 <div class="form-navigation">
@@ -188,10 +188,11 @@
                                         style="margin-bottom: 32px" id="confirmSubmit">Submit</button>
                                 </div>
                             </form>
-                            {{-- 1. Pagination nggarap soal 
-                                2. Alert sebelum mengisi soal ✓
-                                3. Export Excel dashboard (disesuaikan detail e Ben ga Melu ke export ✓
-                                4. le dashboard admin kan seng pie chart warna e ungu, iku minta tolong sekalian gantien warna warni ✓ --}}
+                            {{-- 1. Pagination nggarap soal
+                            2. Alert sebelum mengisi soal ✓
+                            3. Export Excel dashboard (disesuaikan detail e Ben ga Melu ke export ✓
+                            4. le dashboard admin kan seng pie chart warna e ungu, iku minta tolong sekalian gantien
+                            warna warni ✓ --}}
 
 
                             <nav aria-label="Page navigation example" id="dimension-paging">
@@ -219,6 +220,7 @@
         </div>
     </section>
 
+    <script src="{{ asset('assets/js/vendor/sweetalert2.min.js') }}"></script>
     <script>
         $(function() {
             var $sections = $('.form-section');
@@ -258,6 +260,44 @@
                 });
             });
 
+            $('.form-navigation .submit').click(function() {
+                $('.contact-form').parsley().whenValidate({
+                    group: 'block-' + curIndex()
+                }).done(function() {
+                    $('#confirmSubmit').on('click', function() {
+                        swal({
+                            title: 'Yakin jawaban ingin dikirim?',
+                            text: "Setelah jawaban dikirim tidak akan bisa mengisi survey tahun ini lagi!",
+                            type: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#0CC27E',
+                            cancelButtonColor: '#FF586B',
+                            confirmButtonText: 'Ya, kirim!',
+                            cancelButtonText: 'Tidak',
+                            confirmButtonClass: 'btn btn-success mr-5',
+                            cancelButtonClass: 'btn btn-danger',
+                            buttonsStyling: false
+                        }).then(function() {
+                                document.getElementById("soal").submit();                            
+                            swal(
+                                'Send!',
+                                'Jawaban Anda berhasil dikirim.',
+                                'success',
+                            )
+                        }, function(dismiss) {
+                            // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+                            if (dismiss === 'cancel') {
+                                swal(
+                                    'Cancelled',
+                                    'Silahkan cek ulang jawaban Anda',
+                                    'error'
+                                )
+                            }
+                        })
+                    });
+                });
+            });
+
             $('#env').click(function() {
                 navigateTo(0);
             });
@@ -283,40 +323,10 @@
         }
     </script>
 
-    <script src="{{ asset('assets/js/vendor/sweetalert2.min.js') }}"></script>
+
     <script>
         $(document).ready(function() {
-            $('#confirmSubmit').on('click', function() {
-                swal({
-                    title: 'Yakin jawaban ingin dikirim?',
-                    text: "Setelah jawaban dikirim tidak akan bisa mengisi survey tahun ini lagi!",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#0CC27E',
-                    cancelButtonColor: '#FF586B',
-                    confirmButtonText: 'Ya, kirim!',
-                    cancelButtonText: 'Tidak',
-                    confirmButtonClass: 'btn btn-success mr-5',
-                    cancelButtonClass: 'btn btn-danger',
-                    buttonsStyling: false
-                }).then(function() {
-                    document.getElementById("soal").submit();
-                    swal(
-                        'Send!',
-                        'Jawaban Anda berhasil dikirim.',
-                        'success',
-                    )
-                }, function(dismiss) {
-                    // dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
-                    if (dismiss === 'cancel') {
-                        swal(
-                            'Cancelled',
-                            'Silahkan cek ulang jawaban Anda',
-                            'error'
-                        )
-                    }
-                })
-            });
+           
         })
     </script>
 </body>

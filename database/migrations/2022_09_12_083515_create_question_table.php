@@ -23,7 +23,7 @@ class CreateQuestionTable extends Migration
             $table->longText('pilihan_3');
             $table->longText('pilihan_4')->nullable();
             $table->longText('pilihan_5');
-            $table->float('bobot_pertanyaan');
+            $table->Double('bobot_pertanyaan');
 
             $table->foreign('id_aspek', 'fk_aspek')->references('id_aspek')->on('aspect');
         });

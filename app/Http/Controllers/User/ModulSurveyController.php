@@ -57,10 +57,10 @@ class ModulSurveyController extends Controller
                 $decode = json_decode($data[$x->dimensi][$x->kode][$x->kode_indikator],true);
                 // dd($decode);
                 $simpan_for_answer[$x->dimensi][$x->kode][$x->kode_indikator] = $decode['nilai'];
-                $sum_indikator[$x->dimensi][$x->kode][$x->kode_indikator] = $decode['nilai']*$decode['bobot_soal'];
-                $sum_aspek[$x->dimensi][$x->kode] = array_sum($sum_indikator[$x->dimensi][$x->kode]) *$decode['bobot_aspek'];
+                $sum_indikator[$x->dimensi][$x->kode][$x->kode_indikator] = $decode['nilai']/5*$decode['bobot_soal'];
+                $sum_aspek[$x->dimensi][$x->kode] = array_sum($sum_indikator[$x->dimensi][$x->kode]);
                 $sum_dimensi[$x->dimensi] = array_sum($sum_aspek[$x->dimensi]) *$decode['bobot_dimensi'];
-                $sum_total =  array_sum($sum_dimensi)/5;
+                $sum_total =  array_sum($sum_dimensi);
             }
             // dd($simpan_for_answer);
             // dd($sum_aspek);
