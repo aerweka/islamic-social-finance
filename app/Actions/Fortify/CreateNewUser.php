@@ -38,9 +38,9 @@ class CreateNewUser implements CreatesNewUsers
             'nama_direktur_laznas' => ['required', 'string', 'max:255'],
             'tingkatan_laznas' => ['required', 'string', 'max:255'],
             'no_telpon_laznas' => ['required', 'string', 'max:255'],
-            'no_rekomendasi_pembuatan' => ['required', 'string', 'max:255'],
-            'tgl_rekomendasi_pembuatan' => ['required', 'string', 'max:255'],
-            'no_rekomendasi_perpanjangan' => ['required', 'string', 'max:255'],
+            'no_rekomendasi_pembuatan' => ['nullable', 'string', 'max:255'],
+            'tgl_rekomendasi_pembuatan' => ['nullable', 'string', 'max:255'],
+            'no_rekomendasi_perpanjangan' => ['nullable', 'string', 'max:255'],
             'email_verified_at' => now()
         ])->validate();
 

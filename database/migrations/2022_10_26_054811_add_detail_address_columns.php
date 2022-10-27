@@ -20,9 +20,9 @@ class AddDetailAddressColumns extends Migration
             $table->string('alamat_kec');
             $table->string('alamat_kabkot');
             $table->string('alamat_prov');
-            $table->string('no_rekomendasi_pembuatan');
-            $table->string('tgl_rekomendasi_pembuatan');
-            $table->string('no_rekomendasi_perpanjangan');
+            $table->string('no_rekomendasi_pembuatan')->nullable();
+            $table->string('tgl_rekomendasi_pembuatan')->nullable();
+            $table->string('no_rekomendasi_perpanjangan')->nullable();
         });
     }
 
