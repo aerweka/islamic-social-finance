@@ -133,7 +133,7 @@
 	<p class="text-red">{{ $message }}</p>
 	@enderror
 	<h6>Nomor Rekomendasi Pembuatan</h6>
-	<div class="input-group mb-3">
+	<div class="input-group">
 		<input name="no_rekomendasi_pembuatan" type="text" class="form-control"
 			placeholder="Nomor Rekomendasi Pembuatan">
 		<div class="input-group-append">
@@ -142,11 +142,12 @@
 			</div>
 		</div>
 	</div>
+	<p><span class="text-red">*</span><i>jika tidak ada bisa dikosongi</i></p>
 	@error('no_rekomendasi_pembuatan')
 	<p class="text-red">{{ $message }}</p>
 	@enderror
 	<h6>Tanggal Rekomendasi Pembuatan</h6>
-	<div class="input-group mb-3">
+	<div class="input-group">
 		<input name="tgl_rekomendasi_pembuatan" type="date" class="form-control">
 		<div class="input-group-append">
 			<div class="input-group-text">
@@ -154,11 +155,12 @@
 			</div>
 		</div>
 	</div>
+	<p><span class="text-red">*</span><i>jika tidak ada bisa dikosongi</i></p>
 	@error('tgl_rekomendasi_pembuatan')
 	<p class="text-red">{{ $message }}</p>
 	@enderror
 	<h6>Nomor Rekomendasi Perpanjangan</h6>
-	<div class="input-group mb-3">
+	<div class="input-group">
 		<input name="no_rekomendasi_perpanjangan" type="text" class="form-control"
 			placeholder="No Rekomendasi Perpanjangan">
 		<div class="input-group-append">
@@ -167,6 +169,7 @@
 			</div>
 		</div>
 	</div>
+	<p><span class="text-red">*</span><i>jika tidak ada bisa dikosongi</i></p>
 	@error('no_rekomendasi_perpanjangan')
 	<p class="text-red">{{ $message }}</p>
 	@enderror

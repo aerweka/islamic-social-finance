@@ -24,7 +24,8 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki aturan terkait konsumsi energi listrik, telah disosialisasikan, namun belum ada tindakan evaluasi (reward  and punishment)',
             'pilihan_4' => 'Lembaga memiliki aturan terkait konsumsi energi listrik, telah disosialisasikan, serta terdapat reward and punishment yang jelas',
             'pilihan_5' => 'Penghematan dan efisiensi energi listrik telah menjadi budaya lembaga (Contoh Budaya: Seluruh Amil telah melaksanakan tindakan penghematan dan efisiensi energi listrik tanpa paksaan dan dilakukan secara terus-menerus)',
-            'bobot_pertanyaan' => '0.146473628633357'
+            'bobot_pertanyaan' => '0.146473628633357',
+            'footnote' => '<p><b>Reward</b> (penghargaan) merupakan bentuk apresiasi Lembaga kepada para karyawan (amil) karena telah melakukan tindakan sesuai dengan norma, nilai, atau target Lembaga.</p> <p><b>Punishment</b> (hukuman) merupakan bentuk peringatan Lembaga kepada para karyawan (amil) karena melakukan tindakan yang melanggar dengan norma, nilai, atau target Lembaga.</p>'
         ]);
         M_question::create([
             'id_aspek' => '1',
@@ -59,7 +60,8 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki kendaraan bermotor berbahan bakar bensin dengan kuantitas yang sesuai dengan kebutuhan lembaga',
             'pilihan_4' => 'Lembaga memiliki kendaraan bermotor berbahan bakar bensin yang kuantitas dan kualitasnya sesuai dengan kebutuhan lembaga dan digunakan seefisien mungkin',
             'pilihan_5' => 'Lembaga memiliki kendaran bermotor listrik atau biofuel yang kualitas dan kuantitasnya sesuai dengan kebutuhan lembaga dan digunakan seefisien mungkin',
-            'bobot_pertanyaan' => '0.120369032401489'
+            'bobot_pertanyaan' => '0.120369032401489',
+            'footnote' => '<p><b>Kebutuhan</b> merupakan keinginan manusia terhadap suatu barang dan jasa dalam usahanya untuk <b>mempertahankan kehidupannya</b> dimana pemuasannya dapat bersifat jasmani dan rohani. Keinginan merupakan  suatu hal yang ingin kita miliki, namun apabila kita tidak berhasil mendapatkannya maka kelangsungan hidup kita sebagai manusia <b>tidak akan terancam</b>. Contoh kendaraan yang sesuai dengan kebutuhan lembaga adalah memilih kendaraan bermotor yang mampu menunjang aktivitas lembaga. Contoh kendaraan yang mengikuti keinginan adalah membeli kendaraan bermotor mewah sebagai ajang pamer kekayaan kepada lembaga lain.</p> <p><b>Efisien</b> merupakan aktivitas, metode, atau proses yang memiliki tujuan untuk menghemat tenaga, biaya, dan waktu demi mencapai hasil yang maksimal. Contoh penggunaan kendaraan bermotor yang efisien adalah memilih jalur tercepat untuk mencapai tempat tujuan agar penggunaan BBM lebih hemat.</p>'
         ]);
         M_question::create([
             'id_aspek' => '2',
@@ -116,7 +118,8 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga memiliki penanggung jawab 5R yang kompeten, namun tidak melakukan tugasnya dengan baik',
             'pilihan_4' => 'Lembaga memiliki penanggung jawab penerapan 5R dan melakukan tugasnya sesuai dengan SOP yang berlaku',
             'pilihan_5' => 'Lembaga memiliki penanggung jawab penerapan 5R dan melakukan tugasnya sesuai dengan SOP yang berlaku dan memiliki kinerja di luar ekspektasi (melebihi target yang telah ditentukan Lembaga)',
-            'bobot_pertanyaan' => '0.059600955927305'
+            'bobot_pertanyaan' => '0.059600955927305',
+            'footnote' => 'Penanggungjawab penerapan 5R adalah orang atau divisi yang memiliki tugas dan wewenang dalam menegakkan perilaku 5R di Lembaga.'
         ]);
         M_question::create([
             'id_aspek' => '3',
@@ -138,7 +141,8 @@ class question extends Seeder
             'pilihan_1' => 'Lembaga belum mampu memberikan kecukupan upah sesuai UMR setempat',
             'pilihan_3' => 'Lembaga mampu memberikan kecukupan upah sesuai UMR setempat',
             'pilihan_5' => 'Lembaga mampu memberikan upah melebihi UMR setempat, namun tidak melebihi upah Direktur BAZNAS (Mengacu Perpres No. 104 Tahun 2020)',
-            'bobot_pertanyaan' => '0.0657088867893069'
+            'bobot_pertanyaan' => '0.0657088867893069',
+            'footnote' => 'Upah Ketua BAZNAS berdasarkan Perpres No. 104 Tahun 2020 adalah sebesar Rp31.460.000,00'
         ]);
         M_question::create([
             'id_aspek' => '4',
@@ -360,7 +364,8 @@ class question extends Seeder
             'pilihan_3' => 'Nilai Disbursement Collection Ratio berkisar 50-69%',
             'pilihan_4' => 'Nilai Disbursement Collection Ratio berkisar  70-89%',
             'pilihan_5' => 'Nilai Disbursement Collection Ratio >90%',
-            'bobot_pertanyaan' => '0.0250793302159978'
+            'bobot_pertanyaan' => '0.0250793302159978',
+            'footnote' => '<i>Disbursement Collection Ratio</i> adalah tingkat efektivitas penyaluran dana zakat berdasarkan persentase terhadap dana zakat yang terkumpul sehingga bisa diketahui apakah seluruh dana zakat tersalurkan. Perhitungan Nilai <i>Disbursement Collection Ratio</i> Total Dana Zakat Tersalurkan : Total Dana Zakat Terkumpul) x 100%'
         ]);
 
         //aspek8
@@ -371,7 +376,8 @@ class question extends Seeder
             'pilihan_1' => 'Terdapat Dewan Pengawas Syariah, namun bersifat formalitas dan belum difungsikan',
             'pilihan_3' => 'Dewan Pengawas Syariah melakukan penilaian namun hanya jika diminta',
             'pilihan_5' => 'Dewan Pengawas melakukan pengawasan dan penilaian atas kinerja pengelolaan zakat sesuai dengan keahlian yang dibutuhkan',
-            'bobot_pertanyaan' => '0.0456040367375485'
+            'bobot_pertanyaan' => '0.0456040367375485',
+            'footnote' => 'Bila Lembaga tidak memiliki DPS, dapat merujuk pada DPS yang berada di Kantor Pusat.'
         ]);
         M_question::create([
             'id_aspek' => '8',
@@ -590,7 +596,8 @@ class question extends Seeder
             'pilihan_3' => 'Lembaga mendistribusikan laporan hanya pada pemerintah',
             'pilihan_4' => 'Lembaga mendistribusikan laporan kepada donatur, pemerintah, dan asosiasi pada akhir tahun',
             'pilihan_5' => 'Lembaga mendistribusikan laporan kepada donatur, pemerintah, dan asosiasi secara rutin setiap semester sesuai amanah UU 23 Tahun 2011',
-            'bobot_pertanyaan' => '0.0328187225089734'
+            'bobot_pertanyaan' => '0.0328187225089734',
+            'footnote' => '<p>BAZNAS Kota wajib wajib menyampaikan laporan pelaksanaan pengelolaan zakat, infak, sedekah, dan dana sosial keagamaan lainnya kepada BAZNAS provinsi dan pemerintah daerah secara berkala.</p> <p>BAZNAS provinsi wajib menyampaikan laporan pelaksanaan pengelolaan zakat, infak, sedekah, dan dana sosial keagamaan lainnya kepada BAZNAS dan pemerintah daerah secara berkala.</p> <p>LAZ wajib menyampaikan laporan pelaksanaan pengelolaan zakat, infak, sedekah, dan dana sosial keagamaan lainnya kepada BAZNAS dan pemerintah daerah secara berkala.</p> <p>BAZNAS wajib menyampaikan laporan pelaksanaan pengelolaan zakat, infak, sedekah, dan dana sosial keagamaan lainnya kepada Menteri secara berkala.</p>'
         ]);
         M_question::create([
             'id_aspek' => '12',
