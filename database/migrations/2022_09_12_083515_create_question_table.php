@@ -24,6 +24,7 @@ class CreateQuestionTable extends Migration
             $table->longText('pilihan_4')->nullable();
             $table->longText('pilihan_5');
             $table->double('bobot_pertanyaan');
+            $table->longText('footnote')->nullable();
 
             $table->foreign('id_aspek', 'fk_aspek')->references('id_aspek')->on('aspect');
         });

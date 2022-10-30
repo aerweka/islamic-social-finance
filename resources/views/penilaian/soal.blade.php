@@ -90,6 +90,10 @@
         .form-navigation {
             margin: 0 30px 30px;
         }
+
+        hr{
+            border-top: 1px solid;
+        }
     </style>
 </head>
 
@@ -170,6 +174,10 @@
                                                                 {{ $p->pilihan_5 }}
                                                             </label>
                                                             <div class="pilihan"></div>
+                                                            @if($p->footnote != null)
+                                                            <hr>
+                                                            <p>{!! $p->footnote !!}</p>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
