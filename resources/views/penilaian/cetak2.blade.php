@@ -21,7 +21,7 @@
     }
 </style>
 <body>
-    <center><p style="font-size: 12pt; font-weight: bold; font-family: Tahoma">Kinerja Lembaga {{$jawaban[0]->nama_laznas}} Berdasarkan Dimensi Environment, Social, Governance (ESG) Tahun Anggaran {{Carbon::parse($jawaban[0]->filled_at)->year}}</p></center>
+    <center><p style="font-size: 13pt; font-weight: bold; font-family: Tahoma">Kinerja Lembaga {{$jawaban[0]->nama_laznas}} Berdasarkan Dimensi Environment, Social, Governance (ESG) Tahun Anggaran {{Carbon::parse($jawaban[0]->filled_at)->year}}</p></center>
     
 
     <table class="table table-borderless" style="margin-top: 20px; font-size: 11pt">
@@ -134,13 +134,13 @@
         </tbody>
     </table>
     @if($jawaban[0]->total_all >= 80 && $jawaban[0]->total_all <= 100)
-        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 80 hingga 100 maka <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>SEHAT</b></p>
+        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 80 hingga 100 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>SANGAT KONSISTEN</b> dengan nilai-nilai ESG</p>
     @elseif($jawaban[0]->total_all >=60 && $jawaban[0]->total_all < 80)
-        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 60 hingga 79 maka <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>CUKUP SEHAT</b></p>    
+        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 60 hingga 79 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>KONSISTEN</b> dengan nilai-nilai ESG</p>
     @elseif($jawaban[0]->total_all >=51 && $jawaban[0]->total_all < 60)
-        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 51 hingga 59 maka <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>DALAM PENGAWASAN</b></p>    
+        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 51 hingga 59 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>CUKUP KONSISTEN</b> dengan nilai-nilai ESG</p>
     @else   
-        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 0 hingga 50 maka <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>DALAM PENGAWASAN KHUSUS</b></p>    
+        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 0 hingga 50 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>KURANG KONSISTEN</b> dengan nilai-nilai ESG</p>
     @endif
 
     <table class="table table-bordered col-md-8 offset-md-2" style="font-size: 9pt; font-family: tahoma; width:40%; line-height: 5px">
@@ -153,19 +153,19 @@
         <tbody>
             <tr>
                 <td>80 <u>{{'<'}}</u> x <u>{{'<'}}</u> 100</td>
-                <td><b>sehat</b></td>
+                <td><b>sangat konsisten</b></td>
             </tr>
             <tr>
                 <td>60 <u>{{'<'}}</u> x {{'<'}} 80</td>
-                <td><b>cukup sehat</b></td>
+                <td><b>konsisten</b></td>
             </tr>
             <tr>
                 <td>51 <u>{{'<'}}</u> x {{'<'}} 59</td>
-                <td><b>dalam pengawasan</b></td>
+                <td><b>cukup konsisten</b></td>
             </tr>
             <tr>
                 <td>x {{'<'}} 51</td>
-                <td><b>dalam pengawasan khusus</b></td>
+                <td><b>kurang konsisten</b></td>
             </tr>
         </tbody>
     </table>
