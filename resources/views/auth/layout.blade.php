@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('adminlte/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.min.css') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
 </head>
 
 <body class="hold-transition login-page">
