@@ -21,7 +21,7 @@
     }
 </style>
 <body>
-    <center><p style="font-size: 12pt; font-weight: bold; font-family: Tahoma">Kinerja Lembaga {{$jawaban[0]->nama_laznas}} Berdasarkan Dimensi Environment, Social, Governance (ESG) Tahun Anggaran {{Carbon::parse($jawaban[0]->filled_at)->year}}</p></center>
+    <center><p style="font-size: 13pt; font-weight: bold; font-family: Tahoma">Kinerja Lembaga {{$jawaban[0]->nama_laznas}} Berdasarkan Dimensi Environment, Social, Governance (ESG) Tahun Anggaran {{Carbon::parse($jawaban[0]->filled_at)->year}}</p></center>
 
     <table class="table table-borderless" style="margin-top: 20px; font-size: 11pt">
         <tbody>

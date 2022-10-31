@@ -160,7 +160,7 @@ class ModulSurveyController extends Controller
 
 
         $pdf = PDF::loadview('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim', 'sum_indikator', 'tes'));
-        return $pdf->stream('Hasil-Survey-' .$request->tahun .'.pdf');
+        return $pdf->stream('Kinerja Lembaga ' .Auth::user()->nama_laznas .' Tahun Anggaran ' .$request->tahun .'.pdf');
         // return $pdf->stream();
         // return view('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim'));
     }
@@ -216,7 +216,7 @@ class ModulSurveyController extends Controller
 
 
         $pdf = PDF::loadview('penilaian.cetak2', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim', 'sum_indikator', 'tes'));
-        return $pdf->stream('Hasil-Survey-' .$request->tahun .'.pdf');
+        return $pdf->stream('Kinerja Lembaga ' .Auth::user()->nama_laznas .' Tahun Anggaran ' .$request->tahun .'.pdf');
         // return $pdf->stream();
         // return view('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim'));
     }

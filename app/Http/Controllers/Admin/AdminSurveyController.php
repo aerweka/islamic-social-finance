@@ -84,6 +84,6 @@ class AdminSurveyController extends Controller
 
 
         $pdf = PDF::loadview('penilaian.cetak', compact('aspek', 'pertanyaan', 'jawaban', 'count_dim', 'count', 'sum_aspek', 'sum_dimensi', 'dim', 'sum_indikator', 'tes'));
-        return $pdf->stream('Hasil-Survey-' .$jawaban[0]->name .'-' .Carbon::parse($jawaban[0]->filled_at)->year .'.pdf');
+        return $pdf->stream('Kinerja Lembaga ' .$jawaban[0]->nama_laznas .' Tahun Anggaran ' .Carbon::parse($jawaban[0]->filled_at)->year .'.pdf');
     }
 }
