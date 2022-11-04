@@ -34,7 +34,7 @@
 	<h5 class="text-muted">Alamat Laznas</h5>
 	<h6>Jalan <span class="text-red">*</span></h6>
 	<div class="input-group mb-3">
-		<input name="alamat_jalan" type="text" class="form-control" placeholder="Alamat instansi laznas">
+		<input name="alamat_jalan" type="text" class="form-control" placeholder="Alamat instansi LAZ">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-road"></span>
@@ -82,10 +82,10 @@
 	@error('alamat_desa')
 	<p class="text-red">{{ $message }}</p>
 	@enderror
-	<h5 class="text-muted">Informasi Laznas</h5>
+	<h5 class="text-muted">Informasi LAZ</h5>
 	<h6>Nama Instansi <span class="text-red">*</span></h6>
 	<div class="input-group mb-3">
-		<input name="nama_laznas" type="text" class="form-control" placeholder="Nama instansi laznas">
+		<input name="nama_laznas" type="text" class="form-control" placeholder="Nama instansi LAZ">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-building"></span>
@@ -95,9 +95,9 @@
 	@error('nama_laznas')
 	<p class="text-red">{{ $message }}</p>
 	@enderror
-	<h6>Nama Direktur <span class="text-red">*</span></h6>
+	<h6>Divisi Penanggungjawab Input Data <span class="text-red">*</span></h6>
 	<div class="input-group mb-3">
-		<input name="nama_direktur_laznas" type="text" class="form-control" placeholder="Nama direktur instansi laznas">
+		<input name="nama_direktur_laznas" type="text" class="form-control" placeholder="Divisi penanggungjawab input data LAZ">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-user"></span>
@@ -122,7 +122,7 @@
 	@enderror
 	<h6>No Telpon <span class="text-red">*</span></h6>
 	<div class="input-group mb-3">
-		<input name="no_telpon_laznas" type="text" class="form-control" placeholder="Telpon laznas">
+		<input name="no_telpon_laznas" type="text" class="form-control" placeholder="Telpon LAZ">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-phone"></span>
@@ -175,7 +175,7 @@
 	@enderror
 	<h6>Password <span class="text-red">*</span></h6>
 	<div class="input-group mb-3">
-		<input name="password" type="password" class="form-control" placeholder="Password">
+		<input name="password" type="password" class="form-control" placeholder="Minimal 8 karakter">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-lock"></span>
@@ -187,7 +187,7 @@
 	@enderror
 	<h6>Konfirmasi Password <span class="text-red">*</span></h6>
 	<div class="input-group mb-3">
-		<input name="password_confirmation" type="password" class="form-control" placeholder="Retype password">
+		<input name="password_confirmation" type="password" class="form-control" placeholder="Masukkan ulang password">
 		<div class="input-group-append">
 			<div class="input-group-text">
 				<span class="fas fa-lock"></span>

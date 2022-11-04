@@ -91,7 +91,7 @@
             margin: 0 30px 30px;
         }
 
-        hr{
+        hr {
             border-top: 1px solid;
         }
     </style>
@@ -130,7 +130,7 @@
                                                                 value='{"nilai": "1", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
                                                             <label class="form-check-label"
                                                                 for="option1[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                {{ $p->pilihan_1 }}
+                                                                1. {{ $p->pilihan_1 }}
                                                             </label>
                                                             <div class="pilihan"></div>
                                                             @if ($p->pilihan_2 != null)
@@ -140,7 +140,7 @@
                                                                     value='{"nilai": "2", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
                                                                 <label class="form-check-label"
                                                                     for="option2[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                    {{ $p->pilihan_2 }}
+                                                                    2. {{ $p->pilihan_2 }}
                                                                 </label>
                                                             @endif
                                                             <div class="pilihan"></div>
@@ -150,7 +150,7 @@
                                                                 value='{"nilai": "3", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
                                                             <label class="form-check-label"
                                                                 for="option3[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                {{ $p->pilihan_3 }}
+                                                                3.{{ $p->pilihan_3 }}
                                                             </label>
                                                             @if ($p->pilihan_4 != null)
                                                                 <div class="pilihan"></div>
@@ -160,7 +160,7 @@
                                                                     value='{"nilai": "4", "bobot_dimensi": "{{ $a->bobot_dimensi }}", "bobot_aspek": "{{ $a->bobot_aspek }}", "bobot_soal": "{{ $p->bobot_pertanyaan }}"}'>
                                                                 <label class="form-check-label"
                                                                     for="option4[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                    {{ $p->pilihan_4 }}
+                                                                    4. {{ $p->pilihan_4 }}
                                                                 </label>
                                                             @endif
                                                             <div class="pilihan"></div>
@@ -171,12 +171,12 @@
                                                                 required>
                                                             <label class="form-check-label"
                                                                 for="option5[{{ $a->dimensi }}][{{ $p->kode }}][{{ $p->kode_indikator }}]">
-                                                                {{ $p->pilihan_5 }}
+                                                                5. {{ $p->pilihan_5 }}
                                                             </label>
                                                             <div class="pilihan"></div>
-                                                            @if($p->footnote != null)
-                                                            <hr>
-                                                            <p>{!! $p->footnote !!}</p>
+                                                            @if ($p->footnote != null)
+                                                                <hr>
+                                                                <p>{!! $p->footnote !!}</p>
                                                             @endif
                                                         </div>
                                                     </div>
