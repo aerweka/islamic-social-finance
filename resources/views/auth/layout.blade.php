@@ -22,7 +22,7 @@
     <div class="login-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="#" class="h1">Islamic Social Finance</a>
+                <h2 class="h2">Islamic Social Finance</h2>
             </div>
             <div class="card-body">
                 @yield('card-body')
