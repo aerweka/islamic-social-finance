@@ -134,13 +134,13 @@
         </tbody>
     </table>
     @if($jawaban[0]->total_all >= 80 && $jawaban[0]->total_all <= 100)
-        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 80 hingga 100 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>SANGAT KONSISTEN</b> dengan nilai-nilai ESG</p>
+        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 80 hingga 100 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>SANGAT KONSISTEN</b>  dalam mengimplementasikan nilai-nilai ESG</p>
     @elseif($jawaban[0]->total_all >=60 && $jawaban[0]->total_all < 80)
-        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 60 hingga 79 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>KONSISTEN</b> dengan nilai-nilai ESG</p>
+        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 60 hingga 79 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>KONSISTEN</b>  dalam mengimplementasikan nilai-nilai ESG</p>
     @elseif($jawaban[0]->total_all >=51 && $jawaban[0]->total_all < 60)
-        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 51 hingga 59 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>CUKUP KONSISTEN</b> dengan nilai-nilai ESG</p>
+        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 51 hingga 59 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>CUKUP KONSISTEN</b>  dalam mengimplementasikan nilai-nilai ESG</p>
     @else   
-        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 0 hingga 50 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>KURANG KONSISTEN</b> dengan nilai-nilai ESG</p>
+        <p style="font-size: 12pt; font-family: tahoma; margin-left:15px">Dari hasil penilaian skor total yang berada pada rentang 0 hingga 50 maka kinerja <b>LAZ {{$jawaban[0]->nama_laznas}}</b> termasuk kriteria <b>KURANG KONSISTEN</b>  dalam mengimplementasikan nilai-nilai ESG</p>
     @endif
 
     <table class="table table-bordered col-md-8 offset-md-2" style="font-size: 9pt; font-family: tahoma; width:40%; line-height: 5px">
