@@ -39,14 +39,14 @@
                             <p class="text-red">{{ $message }}</p>
                         @enderror
                         <div class="form-group">
-                            <label for="nama_laznas">Nama Laznas</label>
+                            <label for="nama_laznas">Nama LAZ</label>
                             <input name="nama_laznas" type="text" class="form-control"
                                 value="{{ $data[0]->nama_laznas }}" id="nama_laznas" placeholder="name@example.com">
                         </div>
                         @error('nama_laznas')
                             <p class="text-red">{{ $message }}</p>
                         @enderror
-                        <h5 class="text-muted">Alamat Laznas</h5>
+                        <h5 class="text-muted">Alamat LAZ</h5>
                         <div class="form-group">
                             <label for="alamat_jalan">Jalan</label>
                             <input name="alamat_jalan" type="text" class="form-control"
@@ -108,7 +108,7 @@
                         @error('alamat_desa')
                             <p class="text-red">{{ $message }}</p>
                         @enderror
-                        <h5 class="text-muted">Informasi Laznas</h5>
+                        <h5 class="text-muted">Informasi LAZ</h5>
                         <div class="form-group">
                             <label for="nama_direktur_laznas">Nama Direktur</label>
                             <input name="nama_direktur_laznas" type="text" class="form-control"

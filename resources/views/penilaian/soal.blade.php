@@ -91,7 +91,7 @@
             margin: 0 30px 30px;
         }
 
-        hr{
+        hr {
             border-top: 1px solid;
             margin-bottom: 5px
         }
