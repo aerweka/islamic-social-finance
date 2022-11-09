@@ -32,7 +32,7 @@
                     <h4 style="font-weight:bold">Tujuan Survei</h4>
                     <h5> Mengukur konsistensi Lembaga dalam mengimplementasikan nilai-nilai ESG</h5><br>
 
-                    <h4 style="font-weight:bold">Penjelasan survei</h4>
+                    <h4 style="font-weight:bold">Penjelasan Survei</h4>
                     <h5>Survei ini terdiri dari 3 kriteria, yaitu Environtment, Social, dan Governance.</h5>
                     <div class="list">
                         <ul style="text-align: justify">

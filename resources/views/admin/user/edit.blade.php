@@ -110,7 +110,7 @@
                         @enderror
                         <h5 class="text-muted">Informasi LAZ</h5>
                         <div class="form-group">
-                            <label for="nama_direktur_laznas">Nama Direktur</label>
+                            <label for="nama_direktur_laznas">Divisi Penanggungjawab Input Data</label>
                             <input name="nama_direktur_laznas" type="text" class="form-control"
                                 value="{{ $data[0]->nama_direktur_laznas }}" id="nama_direktur_laznas"
                                 placeholder="name@example.com">
