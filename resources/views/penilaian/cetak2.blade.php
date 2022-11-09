@@ -39,7 +39,7 @@
                 <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->nama_laznas}}</td>
             </tr>
             <tr>
-                <td style="width: 20%; line-height: 0px">Direktur</td>
+                <td style="width: 20%; line-height: 0px">Divisi Penanggungjawab</td>
                 <td style="width: 35%; line-height: 0px">: {{$jawaban[0]->nama_direktur_laznas}}</td>
             </tr>
             <tr>

@@ -29,11 +29,11 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Email</th>
-                                    <th>Nama Laznas</th>
-                                    <th>Direktur Laznas</th>
-                                    <th>Tingkatan Laznas</th>
-                                    <th>Telpon Laznas</th>
-                                    <th>Alamat Laznas</th>
+                                    <th>Nama LAZ</th>
+                                    <th>Div PJ Input Data LAZ</th>
+                                    <th>Tingkatan LAZ</th>
+                                    <th>Telpon LAZ</th>
+                                    <th>Alamat LAZ</th>
                                     <th>No Rekomendasi Pembuatan</th>
                                     <th>Tanggal Rekomendasi Pembuatan</th>
                                     <th>No Rekomendasi Perpanjangan</th>
